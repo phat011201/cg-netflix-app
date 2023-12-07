@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import BrowsePage from "../components/mainPage/browsePage/BrowsePage";
-
+import RegisterPage from "../components/mainPage/registerPage/RegisterPage";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -10,7 +10,7 @@ const AppRoutes = () => {
 
       <Route path="/browse" element={<BrowsePage />} />
 
-      <Route path="/register" element={<div>Register</div>} />
+      <Route path="/register/:step?" element={<RegisterPage />} />
 
       <Route path="/login" element={<div>Login</div>} />
 
