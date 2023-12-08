@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from "./header/Header";
 
-const BrowsePage = () => {
+const Browse = () => {
   return (
     <>
       <Header />
@@ -10,4 +10,4 @@ const BrowsePage = () => {
   );
 };
 
-export default BrowsePage;
+export default Browse;
