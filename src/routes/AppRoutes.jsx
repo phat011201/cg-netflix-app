@@ -1,14 +1,17 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Browse from "../components/mainPage/browse/Browse";
+// import Browse from "../components/mainPage/browse/Browse";
+import Manage from "../components/setting/profiles/manage";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<div>Introduction</div>} />
+      {/* <Route path="/" element={<div>Introduction</div>} /> */}
 
-      <Route path="/browse" element={<Browse />} />
+      <Route path="/" element={<Manage />} />
+
+      {/* <Route path="/browse" element={<Browse />} /> */}
 
       <Route path="/register" element={<div>Register</div>} />
 
