@@ -1,28 +1,28 @@
 const logo = {
-  src: "https://www.themoviedb.org/assets/2/v4/logos/s",
+  src: "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true",
   alt: "logo",
 };
 
 const headTitle = [
   {
     title: "Trang Chủ",
-    link: "/",
+    path: "/browse",
   },
   {
     title: "Phim T.hình",
-    link: "/TVShows",
+    path: "/tvshows",
   },
   {
     title: "Phim",
-    link: "/Films",
+    path: "/films",
   },
   {
     title: "Mới & Phổ biến",
-    link: "/NewAndPopular",
+    path: "/newandpopular",
   },
   {
     title: "Duyệt tìm theo ngôn ngữ",
-    link: "/BrowseByLanguage",
+    path: "/browsebylanguage",
   },
 ];
 
