@@ -5,10 +5,10 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
-import { logo, headTitle } from "../../../../constants/constant";
-import NavbarItem from "../NavbarItem";
-import MobileMenu from "../MobileMenu";
-import AccountMenu from "../AccountMenu";
+import { logo, headTitle } from "../../../constants/constant";
+import NavbarItem from "./NavbarItem";
+import MobileMenu from "../mobile/MobileMenu";
+import AccountMenu from "./AccountMenu";
 
 const TOP_OFFSET = 66;
 
