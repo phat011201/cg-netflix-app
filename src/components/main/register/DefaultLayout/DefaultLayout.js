@@ -37,7 +37,7 @@ function DefaultLayout( {children} ) {
                 <Link to={'/'} className={cx('logo')}>
                 {logo}
                 </Link>
-                <Link to={'/'} className={cx('login')}>
+                <Link to={'/login'} className={cx('login')}>
                     Đăng nhập
                 </Link>
             </div>
