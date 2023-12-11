@@ -1,11 +1,11 @@
 import React from "react";
 
-import Header from "./header/Header";
+import Navbar from "./Navbar";
 
 const Browse = () => {
   return (
     <>
-      <Header />
+      <Navbar />
     </>
   );
 };
