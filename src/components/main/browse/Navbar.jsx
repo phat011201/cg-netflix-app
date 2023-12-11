@@ -5,12 +5,10 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
-import { logo, headTitle } from "../../../constants/constant";
+import { logo, headTitle, TOP_OFFSET } from "../../../constants/constant";
 import NavbarItem from "./NavbarItem";
 import MobileMenu from "../mobile/MobileMenu";
 import AccountMenu from "./AccountMenu";
-
-const TOP_OFFSET = 66;
 
 const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
@@ -49,7 +47,7 @@ const Navbar = () => {
             showBackground ? "bg-zinc-900 bg-opacity-90" : ""
           }`}
         >
-          <img src={logo.src} className="h-4 lg:h-7" alt="Logo" />
+          <img src={logo.src} className="h-4 lg:h-7" alt={logo.alt} />
           <div className="flex-row ml-8 gap-7 hidden lg:flex">
             {headTitle.map((item, index) => {
               return (

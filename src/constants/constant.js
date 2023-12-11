@@ -1,5 +1,7 @@
+import logoImg from "../assets/images/logo-long.png";
+
 const logo = {
-  src: "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true",
+  src: logoImg,
   alt: "logo",
 };
 
@@ -26,4 +28,7 @@ const headTitle = [
   },
 ];
 
-export { logo, headTitle };
+
+const TOP_OFFSET = 66;
+
+export { logo, headTitle, TOP_OFFSET };

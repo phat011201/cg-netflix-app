@@ -1,14 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "../components/main/browse/Navbar";
+import Browse from "../components/main/browse/Browse";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<div>Introduction</div>} />
 
-      <Route path="/browse" element={<Navbar />} />
+      <Route path="/browse" element={<Browse />} />
 
       <Route path="/register" element={<div>Register</div>} />
 
