@@ -89,12 +89,14 @@
     width: 100%;
 }
 .form-register {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 48px;
     position: relative;
     border: 1px solid #333;
     border-radius: 4px;
-    margin: 8px 0;
+    margin-top: 8px;
     input {
         outline: none;
         height: 18px;
@@ -119,6 +121,13 @@
         }
             
     }
+}
+
+.noti-err {
+    padding: 0;
+    margin-top: 3px;
+    color: red;
+    font-size: 14px;
 }
 
 .checkbox {
