@@ -5,6 +5,7 @@ import "../../../assets/css/scroll.css";
 import Navbar from "./Navbar";
 import Billboard from "./BillBoard";
 import MovieList from "./MovieList";
+import BrowseFooter from "./BrowseFooter";
 
 import useMovieList from "../../../hooks/useMovieList";
 
@@ -13,13 +14,13 @@ const Browse = () => {
 
   return (
     <>
-      <div className="bg-zinc-900">
+      <div className="bg-[#141414]">
         <Navbar />
         <Billboard />
-        <div className="pb-40 h-full">
-          <MovieList title="Trending Now" data={movies} />
+        <div className="pb-40 pt-40 h-full">
           <MovieList title="Faviorites" data={movies} />
         </div>
+        <BrowseFooter />
       </div>
     </>
   );

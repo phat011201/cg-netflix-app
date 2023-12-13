@@ -40,6 +40,7 @@ const MovieCard = ({ data }) => {
         className="
         opacity-0
         absolute
+        start-[-3rem]
         top-0
         transition
         duration-200
@@ -53,6 +54,7 @@ const MovieCard = ({ data }) => {
         group-hover:-translate-y-[6vw]
         group-hover:translate-x-[2vw]
         group-hover:opacity-100
+        group-hover:start-[-3rem]
       "
       >
         <img

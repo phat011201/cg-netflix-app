@@ -83,7 +83,7 @@ const Navbar = () => {
               className="flex flex-row items-center gap-2 cursor-pointer relative"
             >
               <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                <img src={profile.avatar} alt="" />
+                <img src={profile.avatar} alt={profile.name} />
               </div>
               <ChevronDownIcon
                 className={`w-4 text-white fill-white transition ${
