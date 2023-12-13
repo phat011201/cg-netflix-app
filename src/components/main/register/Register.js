@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from 'axios';
 
 import {  faCheck, faLaptop, faMobileScreenButton, faTabletScreenButton, faTv  } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,13 +22,58 @@ function Register() {
     const { step } = useParams()
     const navigate = useNavigate()
 
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState({email:'',password:''})
     const handleChaneUser = (e)=>{
         setUser((prevUser=>({...prevUser,[e.target.name]:e.target.value}))
             )
     }
+
+
+    const [errors, setErrors] = useState({});
+    const handleSubmitRegister = (event)=>{
+        event.preventDefault();
+
+        const validationErrors = validateForm(user);
+        setErrors(validationErrors);
+        if (Object.keys(validationErrors).length === 0) {
+        sendDataToApi()
+        navigate('/register/step2')
+        }
+    };
+    const sendDataToApi = async () => {
+    try {
+      await axios.post('https://65788648f08799dc80458521.mockapi.io/api/v1/users', user);
+
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
+  };
+
+    
+    const validateForm = (data)=>{
+        let errors = {}
+        if (!data.email.trim()) {
+        errors.email = 'Email không được để trống';
+        } else if (!isValidEmail(data.email)) {
+        errors.email = 'Vui lòng nhập đúng định dạng email';
+        }
+        if (!data.password.trim()) {
+        errors.password = 'Mật khẩu không được để trống';
+        } else if (data.password.length < 6) {
+        errors.password = 'Mật khẩu phải dài hơn 6 ký tự';
+        }
+         return errors;
+    }
+
+    const isValidEmail = (email) => {
+            // Use a regex or any other validation logic for email format
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        };
+    
+
     return ( <>
             <DefaultLayout>
+                {/* trang đầu tiên */}
                 {!step && <div className={cx('wrapper')}>
                     <img src={Devices} alt='step img' className={cx('step-img')}/>
                     <div className={cx('header')}>
@@ -41,6 +87,7 @@ function Register() {
                         Tiếp theo
                     </button>
                 </div>}
+                {/* trang đăng kí thành viên */}
                 {(step ==='regform') && <div className={cx('wrapper', 'reg-form')}>
                     <div className={cx('header', 'reg-form')}>
                         <span className={cx('step-indicator')}>Bước 1/3</span>
@@ -51,22 +98,25 @@ function Register() {
                     </div>
                     <form className={cx('form')}>
                         <div className={cx('form-register')}>
-                            <input type='text' name='email' value={user.name} onChange={handleChaneUser}/>
+                            <input type='text' name='email' value={user.name}  onChange={handleChaneUser}/>
                             <label className={user.email ? cx('active'):''} >Email</label>
                         </div>
+                            {errors.email && <p className={cx('noti-err')}>{errors.email}</p>}
                         <div className={cx('form-register')}>
                             <input name='password' type='password' value={user.password} onChange={handleChaneUser}/>
                             <label className={user.password ? cx('active'):''}>Thêm mật khẩu</label>
                         </div>
+                            {errors.password && <p className={cx('noti-err')}>{errors.password}</p>}
                         <div>
                             <input type='checkbox' className={cx('checkbox')}/>
                                 Vui lòng không gửi các ưu đãi đặc biệt của Netflix qua email cho tôi
                         </div>
                     </form>
-                    <button className={cx('btn')} onClick={()=>navigate('/register/step2')}>
+                    <button className={cx('btn')} onClick={handleSubmitRegister}>
                         Tiếp theo
                     </button>
                 </div> }
+                {/* trang chọn gói dịch vụ */}
                 {(step==='step2') && <div className={cx('wrapper')}>
                     <img src={Checkmark} alt='step img' className={cx('step-img','small')}/>
                     <div className={cx('header')}>
@@ -93,6 +143,7 @@ function Register() {
                         Tiếp theo
                     </button>
                 </div>}
+                {/*  */}
                 {(step==='planform') && <div className={cx('plan-form-container')}>
                     <div className={cx('header-plan-form')}>
                         <span className={cx('step-indicator')}>Bước 2/3</span>
@@ -281,6 +332,7 @@ function Register() {
                         Tiếp theo
                     </button>
                 </div>}
+                {/* thanh toán */}
                 {(step ==='paymentPicker') && <div className={cx('wrapper', 'reg-form')}>
                     <img src={Lock} alt='step img' className={cx('step-img','small')}/>
                     <div className={cx('header', 'reg-form')}>
