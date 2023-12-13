@@ -1,4 +1,5 @@
 import logoImg from "../assets/images/logo-long.png";
+import profileImg from "../assets/images/default-profile.jpg";
 
 const logo = {
   src: logoImg,
@@ -28,7 +29,11 @@ const headTitle = [
   },
 ];
 
+const profile = {
+  name: "networld",
+  avatar: profileImg,
+};
 
 const TOP_OFFSET = 66;
 
-export { logo, headTitle, TOP_OFFSET };
+export { logo, headTitle, TOP_OFFSET, profile };

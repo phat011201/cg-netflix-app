@@ -5,7 +5,12 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
-import { logo, headTitle, TOP_OFFSET } from "../../../constants/constant";
+import {
+  logo,
+  headTitle,
+  TOP_OFFSET,
+  profile,
+} from "../../../constants/constant";
 import NavbarItem from "./NavbarItem";
 import MobileMenu from "../mobile/MobileMenu";
 import AccountMenu from "./AccountMenu";
@@ -17,7 +22,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY);
       if (window.scrollY >= TOP_OFFSET) {
         setShowBackground(true);
       } else {
@@ -79,7 +83,7 @@ const Navbar = () => {
               className="flex flex-row items-center gap-2 cursor-pointer relative"
             >
               <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                <img src="/images/default-blue.png" alt="" />
+                <img src={profile.avatar} alt="" />
               </div>
               <ChevronDownIcon
                 className={`w-4 text-white fill-white transition ${

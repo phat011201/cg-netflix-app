@@ -1,14 +1,14 @@
 import React from "react";
 
 import Navbar from "./Navbar";
-import BannerShow from "./BannerShow";
+import Billboard from "./BillBoard";
 
 const Browse = () => {
   return (
     <>
-      <div>
+      <div className="bg-zinc-900 w-full h-full">
         <Navbar />
-        <BannerShow />
+        <Billboard />
       </div>
     </>
   );
