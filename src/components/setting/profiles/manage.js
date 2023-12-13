@@ -7,6 +7,7 @@ import {
   faCirclePlus,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 // import "../../../assets/fontawesome-free-6.5.1-web/css/fontawesome.css";
 
 const cx = classNames.bind(styles);
@@ -17,7 +18,8 @@ export default function Manage() {
   const [addEditProfile, setAddEditProfile] = useState(false);
   const [editChildrenProfile, setEditChildrenProfile] = useState(false);
   const [listItems, setListItems] = useState([]);
-  
+  const navigate = useNavigate();
+
   const handleAddNewProfile = () => {
     if (addProfile == false) {
       setAddProfile(true);
@@ -40,6 +42,10 @@ export default function Manage() {
     } else {
       setEditChildrenProfile(false);
     }
+  };
+
+  const navigateSettingRestriction = () => {
+    navigate("/settings/restrictions");
   };
 
   // check AutoPlay EditProfile
@@ -239,7 +245,10 @@ export default function Manage() {
                     Hiển thị phim và chương trình ở <b>mọi độ tuổi</b> cho hồ sơ
                     này.
                   </p>
-                  <button className={cx("btn-settingEditAge")}>
+                  <button
+                    onClick={navigateSettingRestriction}
+                    className={cx("btn-settingEditAge")}
+                  >
                     Chỉnh sửa
                   </button>
                 </div>
@@ -355,10 +364,13 @@ export default function Manage() {
                   <button className={cx("allAge")}>Trẻ em</button>
                   <button className={cx("ageChildren")}>10+</button>
                   <p className={cx("display")}>
-                    Chỉ hiển thị các video có mức xếp hạng độ tuổi từ{" "}
+                    Chỉ hiển thị các video có mức xếp hạng độ tuổi từ
                     <b>10+ trở xuống</b> cho hồ sơ này.
                   </p>
-                  <button className={cx("btn-settingEditAge")}>
+                  <button
+                    onClick={navigateSettingRestriction}
+                    className={cx("btn-settingEditAge")}
+                  >
                     Chỉnh sửa
                   </button>
                 </div>
@@ -429,6 +441,11 @@ export default function Manage() {
 }
 
 // check bằng awesome như thế nào ?
+
+/**
+ * Cập nhật animation
+ * Cập nhật marker ở autoPlay và addProfile
+ */
 
 /**
  ***NOT YET
