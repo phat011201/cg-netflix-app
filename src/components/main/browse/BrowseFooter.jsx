@@ -30,54 +30,58 @@ const BrowseFooter = () => {
   ];
   const memberFooterLinkList = [
     {
-      title: "Audio Description",
+      title: "Mô tả âm thanh",
       path: "/",
     },
     {
-      title: "Investor Relations",
+      title: "Trung tâm trợ giúp",
       path: "/",
     },
     {
-      title: "Legal Notices",
+      title: "Thẻ quà tặng",
       path: "/",
     },
     {
-      title: "Cookie Preferences",
+      title: "Trung tâm đa phương tiện",
       path: "/",
     },
     {
-      title: "Corporate Information",
+      title: "Quan hệ với nhà đầu tư",
       path: "/",
     },
     {
-      title: "Help Center",
+      title: "Việc làm",
       path: "/",
     },
     {
-      title: "Gift Cards",
+      title: "Điều khoản sử dụng",
       path: "/",
     },
     {
-      title: "Jobs",
+      title: "Quyền riêng tư",
       path: "/",
     },
     {
-      title: "Terms of Use",
+      title: "Thông báo pháp lý",
       path: "/",
     },
     {
-      title: "Watch for Free",
+      title: "Tùy chọn cookie",
       path: "/",
     },
     {
-      title: "Netflix Originals",
+      title: "Thông tin doanh nghiệp",
+      path: "/",
+    },
+    {
+      title: "Liên hệ với chúng tôi",
       path: "/",
     },
   ];
   return (
     <>
       <div className="flex flex-col justify-center items-center p-4">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 max-w-[50%]">
           <div className="text-white flex gap-6">
             {iconList.map((item, index) => (
               <a href={item.path} key={index} className="inline-block">
@@ -92,7 +96,7 @@ const BrowseFooter = () => {
                 className="box-border flex-shrink-0 w-1/4 list-none mb-4 pr-22"
               >
                 <Link to={item.path} className="text-[#808080] no-underline">
-                  {item.title}
+                  <span>{item.title}</span>
                 </Link>
               </li>
             ))}
