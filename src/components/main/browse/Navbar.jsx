@@ -6,10 +6,10 @@ import {
 } from "@heroicons/react/24/outline";
 
 import {
-  logo,
-  headTitle,
+  LOGO,
+  HEADTITLE,
   TOP_OFFSET,
-  profile,
+  PROFILE,
 } from "../../../constants/constant";
 import NavbarItem from "./NavbarItem";
 import MobileMenu from "../mobile/MobileMenu";
@@ -51,9 +51,9 @@ const Navbar = () => {
             showBackground ? "bg-zinc-900 bg-opacity-90" : ""
           }`}
         >
-          <img src={logo.src} className="h-4 lg:h-7" alt={logo.alt} />
+          <img src={LOGO.src} className="h-4 lg:h-7" alt={LOGO.alt} />
           <div className="flex-row ml-8 gap-7 hidden lg:flex">
-            {headTitle.map((item, index) => {
+            {HEADTITLE.map((item, index) => {
               return (
                 <NavbarItem label={item.title} key={index} src={item.path} />
               );
@@ -83,7 +83,7 @@ const Navbar = () => {
               className="flex flex-row items-center gap-2 cursor-pointer relative"
             >
               <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                <img src={profile.avatar} alt={profile.name} />
+                <img src={PROFILE.avatar} alt={PROFILE.name} />
               </div>
               <ChevronDownIcon
                 className={`w-4 text-white fill-white transition ${

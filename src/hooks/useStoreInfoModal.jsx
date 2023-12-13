@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useInfoModalStore = () => {
+export const useStoreInfoModal = () => {
   const [movieId, setMovieId] = useState(undefined);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,4 +22,4 @@ export const useInfoModalStore = () => {
   };
 };
 
-export default useInfoModalStore;
+export default useStoreInfoModal;

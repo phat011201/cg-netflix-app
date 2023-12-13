@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { PlayIcon } from "@heroicons/react/24/solid";
 
-import useInfoModalStore from "../../../hooks/useInfoModalStore";
+import useStoreInfoModal from "../../../hooks/useStoreInfoModal";
 
 const MovieCard = ({ data }) => {
   const navigate = useNavigate();
-  const { openModal } = useInfoModalStore();
+  const { openModal } = useStoreInfoModal();
 
   const redirectToWatch = useCallback(
     () => navigate(`/watch/${data.id}`),

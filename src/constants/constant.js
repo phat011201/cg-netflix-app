@@ -1,12 +1,12 @@
 import logoImg from "../assets/images/logo-long.png";
 import profileImg from "../assets/images/default-profile.jpg";
 
-const logo = {
+const LOGO = {
   src: logoImg,
   alt: "logo",
 };
 
-const headTitle = [
+const HEADTITLE = [
   {
     title: "Trang Chủ",
     path: "/browse",
@@ -29,13 +29,13 @@ const headTitle = [
   },
 ];
 
-const profile = {
+const PROFILE = {
   name: "networld",
   avatar: profileImg,
 };
 
 const TOP_OFFSET = 66;
 
-const API_Link = "https://cg-netflix-back-end.onrender.com/api/v1/";
+const MOVIES_API_URL = "https://cg-netflix-back-end.onrender.com/api/v1/";
 
-export { logo, headTitle, TOP_OFFSET, profile, API_Link };
+export { LOGO, HEADTITLE, TOP_OFFSET, PROFILE, MOVIES_API_URL };

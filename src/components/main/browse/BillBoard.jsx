@@ -6,10 +6,10 @@ import MovieList from "./MovieList";
 
 import useMovieList from "../../../hooks/useMovieList";
 import useBillboard from "../../../hooks/useBillboard";
-import useInfoModalStore from "../../../hooks/useInfoModalStore";
+import useStoreInfoModal from "../../../hooks/useStoreInfoModal";
 
 const Billboard = () => {
-  const { openModal } = useInfoModalStore();
+  const { openModal } = useStoreInfoModal();
   const { data, error, isLoading } = useBillboard();
 
   const { data: movies = [] } = useMovieList();

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { API_Link } from "../constants/constant";
+import { MOVIES_API_URL } from "../constants/constant";
 
 const useMovies = () => {
   const [data, setData] = useState(null);
@@ -11,7 +11,7 @@ const useMovies = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(API_Link + "videos"
+        const response = await axios.get(MOVIES_API_URL + "videos"
         );
         setData(response.data);
       } catch (error) {
