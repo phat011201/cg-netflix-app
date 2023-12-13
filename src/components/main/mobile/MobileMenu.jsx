@@ -1,6 +1,6 @@
 import React from "react";
 
-import { headTitle } from "../../../constants/constant";
+import { HEADTITLE } from "../../../constants/constant";
 
 const MobileMenu = ({ visible }) => {
   if (!visible) {
@@ -10,7 +10,7 @@ const MobileMenu = ({ visible }) => {
   return (
     <div className="bg-black w-56 absolute top-8 left-0 py-5 flex-col border-2 border-gray-800 flex">
       <div className="flex flex-col gap-4">
-        {headTitle.map((item, index) => {
+        {HEADTITLE.map((item, index) => {
           return (
             <div
               className="px-3 text-center text-white hover:underline"
