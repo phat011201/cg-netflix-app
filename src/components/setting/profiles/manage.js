@@ -8,7 +8,6 @@ import {
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-// import "../../../assets/fontawesome-free-6.5.1-web/css/fontawesome.css";
 
 const cx = classNames.bind(styles);
 
@@ -47,20 +46,6 @@ export default function Manage() {
   const navigateSettingRestriction = () => {
     navigate("/settings/restrictions");
   };
-
-  // check AutoPlay EditProfile
-  // const markerCheckPreview = document.getElementById("markerCheckPreview");
-  // const showMarkerCheckPreview = document.getElementById(
-  //   "showMarkerCheckPreview"
-  // );
-
-  // const showMarkerCheck = () => {
-  //   if (showMarkerCheckPreview.type === "checkbox") {
-  //     markerCheckPreview.classList.remove("showIconCheckPreview");
-  //   } else {
-  //     markerCheckPreview.classList.add("showIconCheckPreview");
-  //   }
-  // };
 
   return (
     <>
@@ -439,21 +424,3 @@ export default function Manage() {
     </>
   );
 }
-
-// check bằng awesome như thế nào ?
-
-/**
- * Cập nhật animation
- * Cập nhật marker ở autoPlay và addProfile
- */
-
-/**
- ***NOT YET
- *  page "trẻ em"
- *  page "đăng nhập để chỉnh sửa - chỉnh sửa theo độ age" ( 2 days)
- *
- *  page "Account - all page trong này" ( 3 days)
- *
- *  page "reverse profile - detail reverse profile" ( 1 day)
- *      --> NOTE: this page has learn more ( thuộc trang TT hỗ trợ)
- */

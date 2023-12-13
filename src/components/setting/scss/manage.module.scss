@@ -29,10 +29,6 @@ body {
 }
 
 .box-profile {
-  // animation-name: transition;
-  // animation-duration: 0.4s;
-  // animation-timing-function: ease-in-out;
-  // animation-fill-mode: forwards;
   animation: transition 0.4s ease-in-out forwards;
 }
 
@@ -419,8 +415,6 @@ body {
         margin-left: 25px;
 
         .input-editProfile {
-          // margin-bottom: 1.5vw;
-
           .name-editProfile {
             background: #666;
             border: 1px solid transparent;
@@ -440,7 +434,6 @@ body {
 
           p.checkName-editProfile {
             color: #ea3841;
-            // display: none;
           }
           .checkInput-editProfile {
             border: 1px solid #ea3841;
@@ -655,14 +648,3 @@ h2.title-editProfile {
   color: #ccc;
   padding: 10px 0 5px;
 }
-
-// .showIconCheckPreview::before {
-//   content: '\f00c';
-//   position: absolute;
-//   font-size: 18px;
-//   width: 24px;
-//   height: 24px;
-//   top: 8px;
-//   left: 8px;
-//   color: #fff;
-// }
