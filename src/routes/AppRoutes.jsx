@@ -3,13 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import Login from "../components/main/login/Login";
 import Register from "../components/main/register/Register";
 import Browse from "../components/main/browse/Browse";
+import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<div>Introduction</div>} />
+      <Route path="/" element={<Introduction />} />
 
       <Route path="/browse" element={<Browse />} />
 
