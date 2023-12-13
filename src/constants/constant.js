@@ -36,4 +36,6 @@ const profile = {
 
 const TOP_OFFSET = 66;
 
-export { logo, headTitle, TOP_OFFSET, profile };
+const API_Link = "https://65790f5ef08799dc80464bf0.mockapi.io/api/v1/";
+
+export { logo, headTitle, TOP_OFFSET, profile, API_Link };

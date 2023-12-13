@@ -1,0 +1,32 @@
+/* WebKit Scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the thumb */
+  border-radius: 6px; /* roundness of the thumb */
+}
+
+/* Firefox Scrollbar */
+/* This is supported in Firefox 64+ */
+/* Specify the width and color of the scrollbar */
+/* Auto hides scrollbar when not interacting */
+/* To cover older Firefox versions, you might need to use different approaches */
+/* More: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width */
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* For the thumb */
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
