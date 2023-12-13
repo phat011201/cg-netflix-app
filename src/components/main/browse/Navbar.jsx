@@ -5,12 +5,15 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
-import { logo, headTitle } from "../../../constants/constant";
+import {
+  LOGO,
+  HEADTITLE,
+  TOP_OFFSET,
+  PROFILE,
+} from "../../../constants/constant";
 import NavbarItem from "./NavbarItem";
 import MobileMenu from "../mobile/MobileMenu";
 import AccountMenu from "./AccountMenu";
-
-const TOP_OFFSET = 66;
 
 const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
@@ -19,7 +22,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY);
       if (window.scrollY >= TOP_OFFSET) {
         setShowBackground(true);
       } else {
@@ -45,13 +47,13 @@ const Navbar = () => {
     <>
       <nav className="w-full fixed z-40">
         <div
-          className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${
+          className={`w-full px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${
             showBackground ? "bg-zinc-900 bg-opacity-90" : ""
           }`}
         >
-          <img src={logo.src} className="h-4 lg:h-7" alt="Logo" />
+          <img src={LOGO.src} className="h-4 lg:h-7" alt={LOGO.alt} />
           <div className="flex-row ml-8 gap-7 hidden lg:flex">
-            {headTitle.map((item, index) => {
+            {HEADTITLE.map((item, index) => {
               return (
                 <NavbarItem label={item.title} key={index} src={item.path} />
               );
@@ -81,7 +83,7 @@ const Navbar = () => {
               className="flex flex-row items-center gap-2 cursor-pointer relative"
             >
               <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
-                <img src="/images/default-blue.png" alt="" />
+                <img src={PROFILE.avatar} alt={PROFILE.name} />
               </div>
               <ChevronDownIcon
                 className={`w-4 text-white fill-white transition ${
