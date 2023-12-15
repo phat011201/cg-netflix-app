@@ -14,7 +14,6 @@ import Payment from './Payment/Payment';
 import styles from './Register.module.scss'
 import Devices from '../../../assets/images/Devices.png'
 import Checkmark from '../../../assets/images/Checkmark.png'
-import Lock from '../../../assets/images/Lock.png'
 
 
 
@@ -334,34 +333,7 @@ function Register() {
                     </button>
                 </div>}
                 {/* thanh toán */}
-                {/* {(step ==='paymentPicker') && <div className={cx('wrapper', 'reg-form')}>
-                    <img src={Lock} alt='step img' className={cx('step-img','small')}/>
-                    <div className={cx('header', 'reg-form')}>
-                        <span className={cx('step-indicator')}>Bước 3/3</span>
-                        <h1 className={cx('step-title')}>Chọn cách thanh toán</h1>
-                    </div>
-                    <div className={cx('regContext')}>
-                        Quá trình thanh toán của bạn được mã hóa và bạn có thể thay đổi cách thanh toán bất kỳ lúc nào.
-                    </div>
-                    <form className={cx('form')}>
-                        <div className={cx('form-register')}>
-                            <input type='text' name='email' value={user.name} onChange={handleChaneUser}/>
-                            <label className={user.email ? cx('active'):''} >Email</label>
-                        </div>
-                        <div className={cx('form-register')}>
-                            <input name='password' type='password' value={user.password} onChange={handleChaneUser}/>
-                            <label className={user.password ? cx('active'):''}>Thêm mật khẩu</label>
-                        </div>
-                        <div>
-                            <input type='checkbox' className={cx('checkbox')}/>
-                                Vui lòng không gửi các ưu đãi đặc biệt của Netflix qua email cho tôi
-                        </div>
-                    </form>
-                    <button className={cx('btn')} onClick={()=>navigate('/register/step2')}>
-                        Tiếp theo
-                    </button>
-                </div> } */}
-                {(step ==='paymentPicker')&& <Payment />}
+                {((step ==='paymentPicker') || (step ==='creditOption') || (step ==='mobileWalletOption'))&& <Payment />}
             </DefaultLayout>
     </> );
 }
