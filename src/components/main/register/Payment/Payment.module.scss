@@ -87,12 +87,8 @@
     margin: 10px 0;
     padding: 0;
 }
-.form-field-container {
+.form-field-container,.simple-form {
     width: 100%;
-}
-.simple-form {
-    width: 100%;
-
 }
 .nF-form-space {
     height: 60px;
@@ -195,7 +191,18 @@
             cursor: pointer;
         }
 }
-
+.acceptance {
+    font-size: 20px;
+}
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: #ccc;
+    color: black;
+    margin: 5px;
+    padding: 0;
+}
 .btn {
     color: #fff;
     background-color: #e50914;
@@ -209,4 +216,13 @@
     padding: auto;
     text-align: center;
     margin: 20px auto;
+}
+.sub-header {
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    margin: 20px 0;
+}
+
+.select-country {
+    width: 30%;
 }
