@@ -10,6 +10,7 @@ import {  faCheck, faLaptop, faMobileScreenButton, faTabletScreenButton, faTv  }
 
 
 import DefaultLayout from './DefaultLayout/DefaultLayout'
+import Payment from './Payment/Payment';
 import styles from './Register.module.scss'
 import Devices from '../../../assets/images/Devices.png'
 import Checkmark from '../../../assets/images/Checkmark.png'
@@ -333,7 +334,7 @@ function Register() {
                     </button>
                 </div>}
                 {/* thanh toán */}
-                {(step ==='paymentPicker') && <div className={cx('wrapper', 'reg-form')}>
+                {/* {(step ==='paymentPicker') && <div className={cx('wrapper', 'reg-form')}>
                     <img src={Lock} alt='step img' className={cx('step-img','small')}/>
                     <div className={cx('header', 'reg-form')}>
                         <span className={cx('step-indicator')}>Bước 3/3</span>
@@ -359,7 +360,8 @@ function Register() {
                     <button className={cx('btn')} onClick={()=>navigate('/register/step2')}>
                         Tiếp theo
                     </button>
-                </div> }
+                </div> } */}
+                {(step ==='paymentPicker')&& <Payment />}
             </DefaultLayout>
     </> );
 }
