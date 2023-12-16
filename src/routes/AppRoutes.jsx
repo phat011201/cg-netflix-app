@@ -6,7 +6,6 @@ import Browse from "../components/main/browse/Browse";
 import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
-import Header from "../components/setting/profiles/headerProfile";
 
 const AppRoutes = () => {
   return (
@@ -14,7 +13,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Introduction />} />
 
       <Route path="/browse" element={<Browse />} />
-      <Route path="/watch/:movieId" element={<div>Watch</div>} />
+      <Route path="/watch/:movieId" element={<Watch />} />
 
       <Route path="/profiles/manage" element={<Manage />} />
 

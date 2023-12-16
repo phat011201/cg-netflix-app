@@ -68,7 +68,7 @@ const Billboard = () => {
             "
             >
               <InformationCircleIcon className="w-4 md:w-7 mr-1" />
-              More Info
+              Thông tin khác
             </button>
           </div>
         </div>
