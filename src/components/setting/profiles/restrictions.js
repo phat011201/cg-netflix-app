@@ -11,7 +11,7 @@ export default function Restrictions() {
   const navigate = useNavigate();
 
   const handleNavigateManageProfile = () => {
-    navigate("/manage-profiles");
+    navigate("/profiles/manage");
   };
 
   const handleNavigateBrowse = () => {

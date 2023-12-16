@@ -8,6 +8,8 @@ import {
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import InstructEdit from "./instructEdit";
+import Header from "./headerProfile";
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +18,7 @@ export default function Manage() {
   const [addProfile, setAddProfile] = useState(false);
   const [addEditProfile, setAddEditProfile] = useState(false);
   const [editChildrenProfile, setEditChildrenProfile] = useState(false);
+  const [instruct, setInstruct] = useState(false);
   const [listItems, setListItems] = useState([]);
   const navigate = useNavigate();
 
@@ -45,6 +48,14 @@ export default function Manage() {
 
   const navigateSettingRestriction = () => {
     navigate("/settings/restrictions");
+  };
+
+  const handleShowInstruct = () => {
+    if (instruct == false) {
+      setInstruct(true);
+    } else {
+      setInstruct(false);
+    }
   };
 
   return (
@@ -151,7 +162,7 @@ export default function Manage() {
       {/* Chỉnh sửa hồ sơ */}
       {addEditProfile && (
         <div className={cx("box-mainEditProfile")}>
-          <div className={cx("header")}></div>
+          <Header />
           <div className={cx("box-actionEditProfile")}>
             <h1 className={cx("title-editProfile")}>Chỉnh sửa hồ sơ</h1>
             <div className={cx("content-editProfile")}>
@@ -199,7 +210,10 @@ export default function Manage() {
                     để chơi cùng các thành viên Netflix khác xuyên suốt các trò
                     chơi Netflix.
                   </p>
-                  <button className={cx("findOutMore-editProfile")}>
+                  <button
+                    onClick={handleShowInstruct}
+                    className={cx("findOutMore-editProfile")}
+                  >
                     Tìm hiểu thêm
                   </button>
                   <div className={cx("createNickName-editProfile")}>
@@ -299,6 +313,8 @@ export default function Manage() {
           </div>
         </div>
       )}
+
+      <div className={cx("instruct")}>{instruct && <InstructEdit />}</div>
 
       {/* Chỉnh sừa hồ sơ trẻ em*/}
       {editChildrenProfile && (
