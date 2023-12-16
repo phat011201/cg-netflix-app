@@ -6,6 +6,7 @@ import Browse from "../components/main/browse/Browse";
 import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
+import Watch from "../components/main/watch/Watch";
 
 const AppRoutes = () => {
   return (

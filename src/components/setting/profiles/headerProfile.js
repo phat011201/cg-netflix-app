@@ -1,30 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../scss/header.scss";
-import { animateScroll as scroll } from "react-scroll";
+import useScroll from "../../../hooks/useScroll";
 
 const Header = () => {
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      if (scrollTop > 50) {
-        setIsHeaderVisible(true);
-      } else {
-        setIsHeaderVisible(false);
-      }
-    };
-
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const isScrolled = useScroll(20);
 
   return (
-    <div className={`header ${isHeaderVisible ? `visible` : `hidden`}`}></div>
+    <div className={`header ${isScrolled ? `visible` : `hidden`}`}></div>
   );
 };
 
