@@ -223,6 +223,75 @@
     margin: 20px 0;
 }
 
+
+// 
+.country-select-container {
+    width: 25%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .select-country {
-    width: 30%;
+    display: flex;
+
+    height: 48px;
+    width: 100%;
+    border: 1px solid #333;
+    margin-bottom: 22px;
+
+}
+
+.country-select-code {
+    margin: 10px;
+}
+.phone-number {
+    flex: 1;
+    height: 48px;
+    border-radius: 1px;
+    position: relative;
+
+}
+
+
+
+.input-phone-number {
+    outline: none;
+        height: 18px;
+        margin-top: 20px;
+        width: 100%;
+    
+        &:focus+.input-phone-label {
+            transform: translateY(-100%);
+            font-size: 14px;
+        }
+}
+.input-phone-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+    transition: transform 0.3s, font-size 0.3s;
+    left: 10px;
+}
+
+.popup-select-country {
+    width: 350px;
+    height: 380px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.item-country {
+    height: 44px;
+    padding: 10px;
+}
+.country-select-option-flag {
+
+}
+.country-select-option-code {
+    
 }
