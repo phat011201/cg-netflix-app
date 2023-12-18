@@ -1,24 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Emailpart from "./Emailpart";
+
 import "./style.scss";
+import logo from "../../assets/images/logo-long.png";
 
 function Introduction() {
   return (
     <>
       {/* Banner */}
       <section className="banner">
-        <div className="header">
-          <nav>
-            <img className="logo" src="/src/images/logo-long.png" alt="logo" />
-            <div>
-              <select name="">
-                <option value="">Tiếng Việt</option>
-                <option value="">English</option>
-                <option value="">日本語</option>
-              </select>
-              <button>Đăng nhập</button>
-            </div>
-          </nav>
-        </div>
+        <nav>
+          <img className="logo" src={logo} alt="logo" />
+          <div>
+            <select name="">
+              <option value="">Tiếng Việt</option>
+              <option value="">English</option>
+              <option value="">日本語</option>
+            </select>
+            <button>Đăng nhập</button>
+          </div>
+        </nav>
+
         <div className="header-content">
           <h1>
             Chương trình truyền hình, phim không giới hạn và nhiều nội dung khác
@@ -28,10 +31,20 @@ function Introduction() {
             Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư
             cách thành viên của bạn.
           </h4>
-          <form action="" className="email-signup">
-            <input type="email" placeholder="Địa chỉ email" required />
-            <button type="submit">Bắt đầu</button>
-          </form>
+          <Emailpart />
+          {/* <form action="" className="email-signup">
+            <input
+              type="email"
+              placeholder="Địa chỉ email"
+              onChangeText={handleEmailChange(email)}
+              value={email}
+              required
+            />
+
+            <button type="submit" onPress={handleButtonPress()}>
+              Bắt đầu
+            </button>
+          </form> */}
         </div>
       </section>
       {/* Features */}
@@ -96,7 +109,9 @@ function Introduction() {
         <ul className="accordion">
           <li>
             <input type="radio" name="accordion" id="first" />
-            <label for="first">Netflix là gì?</label>
+            <label className="accordion-menu" htmlFor="first">
+              Netflix là gì?
+            </label>
             <div className="content">
               <p>
                 Netflix là dịch vụ phát trực tuyến mang đến đa dạng các loại
@@ -108,7 +123,7 @@ function Introduction() {
           </li>
           <li>
             <input type="radio" name="accordion" id="second" />
-            <label for="second">
+            <label className="accordion-menu" for="second">
               Tôi phải trả bao nhiêu tiền để xem Netflix??
             </label>
             <div className="content">
@@ -122,7 +137,9 @@ function Introduction() {
           </li>
           <li>
             <input type="radio" name="accordion" id="third" />
-            <label for="third">Tôi có thể xem ở đâu?</label>
+            <label className="accordion-menu" for="third">
+              Tôi có thể xem ở đâu?
+            </label>
             <div className="content">
               <p>
                 Xem mọi lúc, mọi nơi. Đăng nhập bằng tài khoản Netflix của bạn
@@ -136,7 +153,9 @@ function Introduction() {
           </li>
           <li>
             <input type="radio" name="accordion" id="fourth" />
-            <label for="fourth">Làm thế nào để hủy?</label>
+            <label className="accordion-menu" for="fourth">
+              Làm thế nào để hủy?
+            </label>
             <div className="content">
               <p>
                 Netflix rất linh hoạt. Không có hợp đồng phiền toái, không ràng
@@ -148,7 +167,9 @@ function Introduction() {
           </li>
           <li>
             <input type="radio" name="accordion" id="fifth" />
-            <label for="fifth">Tôi có thể xem gì trên Netflix?</label>
+            <label className="accordion-menu" for="fifth">
+              Tôi có thể xem gì trên Netflix?
+            </label>
             <div className="content">
               <p>
                 Netflix có một thư viện phong phú gồm các phim truyện, phim tài
@@ -160,7 +181,9 @@ function Introduction() {
           </li>
           <li>
             <input type="radio" name="accordion" id="sixth" />
-            <label for="sixth">Netflix có phù hợp cho trẻ em không?</label>
+            <label className="accordion-menu" for="sixth">
+              Netflix có phù hợp cho trẻ em không?
+            </label>
             <div className="content">
               <p>
                 Trải nghiệm Netflix Trẻ em có sẵn trong gói dịch vụ của bạn,
@@ -176,10 +199,11 @@ function Introduction() {
             Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư
             cách thành viên của bạn.
           </h4>
-          <form action="" className="email-signup">
+          {/* <form action="" className="email-signup">
             <input type="email" placeholder="Địa chỉ email" required />
             <button type="submit">Bắt đầu</button>
-          </form>
+          </form> */}
+          <Emailpart />
         </small>
       </section>
       {/* Footer */}
@@ -187,28 +211,42 @@ function Introduction() {
         <h2>Bạn có câu hỏi? Liên hệ với chúng tôi.</h2>
         <div className="row">
           <div className="col">
-            <a href="">Câu hỏi thường gặp</a>
-            <a href="">Tài khoản</a>
-            <a href="">Quan hệ với nhà đầu tư</a>
-            <a href="">Các cách xem</a>
+            <Link to="#">Câu hỏi thường gặp</Link>
+            <br />
+            <Link to="#">Tài khoản</Link>
+            <br />
+            <Link to="#">Quan hệ với nhà đầu tư</Link>
+            <br />
+            <Link to="#">Các cách xem</Link>
           </div>
           <div className="col">
-            <a href="">Quyền riêng tư</a>
-            <a href="">Thông tin doanh nghiệp</a>
-            <a href="">Kiểm tra tốc độ</a>
-            <a href="">Chỉ có trên Netflix</a>
+            <Link to="#">Quyền riêng tư</Link>
+            <br />
+            <Link to="#">Thông tin doanh nghiệp</Link>
+            <br />
+            <Link to="#">Kiểm tra tốc độ</Link>
+            <br />
+            <Link to="#">Chỉ có trên Netflix</Link>
+            <br />
           </div>
           <div className="col">
-            <a href="">Trung tâm trợ giúp</a>
-            <a href="">Trung tâm đa phương tiện</a>
-            <a href="">Việc làm</a>
-            <a href="">Điều khoản sử dụng</a>
-            <a href="">Tùy chọn cookie</a>
+            <Link to="#">Trung tâm trợ giúp</Link>
+            <br />
+            <Link to="#">Trung tâm đa phương tiện</Link>
+            <br />
+            <Link to="#">Việc làm</Link>
+            <br />
+            <Link to="#">Điều khoản sử dụng</Link>
+            <br />
           </div>
           <div className="col">
-            <a href="">Thông tin doanh nghiệp</a>
-            <a href="">Liên hệ với chúng tôi</a>
-            <a href="">Thông báo pháp lý</a>
+            <Link to="#">Tùy chọn cookie</Link>
+            <br />
+            <Link to="#">Thông tin doanh nghiệp</Link>
+            <br />
+            <Link to="#">Liên hệ với chúng tôi</Link>
+            <br />
+            <Link to="#">Thông báo pháp lý</Link>
           </div>
         </div>
         <select name="">
