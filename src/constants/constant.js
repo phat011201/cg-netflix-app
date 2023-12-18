@@ -1,9 +1,12 @@
-const logo = {
-  src: "https://github.com/carlosavilae/Netflix-Clone/blob/master/img/logo.PNG?raw=true",
+import logoImg from "../assets/images/logo-long.png";
+import profileImg from "../assets/images/default-profile.jpg";
+
+const LOGO = {
+  src: logoImg,
   alt: "logo",
 };
 
-const headTitle = [
+const HEADTITLE = [
   {
     title: "Trang Chủ",
     path: "/browse",
@@ -26,4 +29,13 @@ const headTitle = [
   },
 ];
 
-export { logo, headTitle };
+const PROFILE = {
+  name: "networld",
+  avatar: profileImg,
+};
+
+const TOP_OFFSET = 66;
+
+const MOVIES_API_URL = "https://cg-netflix-back-end.onrender.com/api/v1/";
+
+export { LOGO, HEADTITLE, TOP_OFFSET, PROFILE, MOVIES_API_URL };

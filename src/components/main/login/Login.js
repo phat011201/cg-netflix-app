@@ -53,7 +53,7 @@ function Login() {
                                 </label>
                             </div>
                         </form>
-                        <button className={cx('btn')} onClick={()=>navigate('/')}>
+                        <button className={cx('btn')} onClick={()=>navigate('/browse')}>
                         Đăng nhập
                         </button>
                         <div className={cx('login-form-help')}>

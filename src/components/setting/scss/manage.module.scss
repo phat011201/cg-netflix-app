@@ -19,6 +19,19 @@ body {
   display: none;
 }
 
+@keyframes transition {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.box-profile {
+  animation: transition 0.4s ease-in-out forwards;
+}
+
 .main-boxAddProfile,
 .main-box-profile {
   background-color: #141414;
@@ -181,17 +194,20 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  animation: transition 0.4s ease-in-out forwards;
 }
 
 .title-addProfile {
   color: #fff;
   font-size: 4vw;
+  animation: transition 0.4s ease-in-out forwards;
   font-weight: 400;
 }
 
 .slogan-addProfile {
   font-size: 1.3vw;
   color: #666;
+  animation: transition 0.4s ease-in-out forwards;
   margin: 12px 0;
 }
 
@@ -202,6 +218,7 @@ body {
   align-items: center;
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
+  animation: transition 0.4s ease-in-out forwards;
   padding: 25px 0;
 }
 
@@ -210,6 +227,7 @@ body {
   min-width: 130px;
   max-height: 130px;
   min-height: 130px;
+  animation: transition 0.4s ease-in-out forwards;
   margin-right: 1.8vw;
 }
 
@@ -224,6 +242,7 @@ body {
   margin: 0 0.8em 0 0;
   padding: 0.2em 0.6em;
   text-indent: 0.1vw;
+  animation: transition 0.4s ease-in-out forwards;
   width: 18em;
 }
 
@@ -283,6 +302,7 @@ body {
 .btn-addProfile {
   display: flex;
   flex-direction: row;
+  animation: transition 0.4s ease-in-out forwards;
   .btn-nextAddProfile {
     background: #fff;
     border: 1px solid #fff;
@@ -333,6 +353,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
+  animation: transition 0.4s ease-in-out;
 
   .header {
     background-color: #141414;
@@ -340,7 +361,7 @@ body {
     width: 99%;
     position: fixed;
     top: 0px;
-    z-index: 2;
+    z-index: 9;
   }
 
   .box-actionEditProfile {
@@ -352,6 +373,7 @@ body {
     h1.title-editProfile {
       color: #fff;
       font-size: 3.5vw;
+      animation: transition 0.4s ease-in-out forwards;
       font-weight: 500;
     }
 
@@ -363,6 +385,7 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
+      animation: transition 0.4s ease-in-out forwards;
       align-items: flex-start;
 
       .img-editProfile {
@@ -392,8 +415,6 @@ body {
         margin-left: 25px;
 
         .input-editProfile {
-          // margin-bottom: 1.5vw;
-
           .name-editProfile {
             background: #666;
             border: 1px solid transparent;
@@ -413,7 +434,6 @@ body {
 
           p.checkName-editProfile {
             color: #ea3841;
-            // display: none;
           }
           .checkInput-editProfile {
             border: 1px solid #ea3841;
@@ -510,7 +530,7 @@ body {
             margin-right: 5px;
             cursor: default;
           }
-          .ageChildren{
+          .ageChildren {
             color: #fff;
             font-weight: 500;
             background: #333;
@@ -584,6 +604,7 @@ body {
     }
 
     .btn-editUpdate {
+      animation: transition 0.4s ease-in-out forwards;
       margin: 50px 0px 30px;
 
       .btn-saveEditProfile {
@@ -627,14 +648,3 @@ h2.title-editProfile {
   color: #ccc;
   padding: 10px 0 5px;
 }
-
-// .showIconCheckPreview::before {
-//   content: '\f00c';
-//   position: absolute;
-//   font-size: 18px;
-//   width: 24px;
-//   height: 24px;
-//   top: 8px;
-//   left: 8px;
-//   color: #fff;
-// }

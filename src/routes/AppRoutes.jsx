@@ -5,6 +5,8 @@ import Register from "../components/main/register/Register";
 import Browse from "../components/main/browse/Browse";
 import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
+import Restrictions from "../components/setting/profiles/restrictions";
+import Watch from "../components/main/watch/Watch";
 
 const AppRoutes = () => {
   return (
@@ -12,8 +14,11 @@ const AppRoutes = () => {
       <Route path="/" element={<Introduction />} />
 
       <Route path="/browse" element={<Browse />} />
+      <Route path="/watch/:movieId" element={<Watch />} />
 
       <Route path="/manage-profiles" element={<Manage />} />
+
+      <Route path="/settings/restrictions" element={<Restrictions />} />
 
       <Route path="/register/:step?" element={<Register />} />
 
