@@ -30,6 +30,7 @@ $bd-radius: 5px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url(./../../images/bgimg.jpg);
   background-size: cover;
+  background-position: 50% 50%;
   padding: 10px 8px;
   position: relative;
   height: 100vh;
@@ -64,10 +65,6 @@ nav {
   transform: translate(-50%, -50%);
   margin-top: 50px;
   text-align: center;
-  // margin-left: auto;
-  // margin-right: auto;
-  // text-align: center;
-  // padding: 10px 50px;
   color: $text-color;
   h1 {
     font-size: 50px;
@@ -141,14 +138,15 @@ nav {
 .faq {
   @include bw-original;
   padding: 10px 10%;
-  text-align: left;
   font-size: 20px;
   h2 {
     font-size: 50px;
     font-weight: 600;
+    text-align: center;
   }
 }
 .accordion {
+  text-align: left;
   margin: 60px auto;
   width: 100%;
   max-width: 750px;
@@ -202,6 +200,7 @@ input[type="radio"] {
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 10px;
+    text-align: center;
   }
   .email-signup {
     display: flex;
@@ -236,20 +235,21 @@ input[type="radio"] {
     margin-bottom: 10px;
   }
   .row {
-    align-items: flex-start;
-    padding: 10px 0;
+    display: inline-flex;
+    flex-basis: 25%;
+    flex-grow: 0;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     .col {
-      flex-basis: 25%;
       flex-grow: 1;
       margin-bottom: 20px;
-
-      a {
-        display: block;
-        text-decoration: none;
-        color: #777;
-        font-size: 15px;
-        margin-bottom: 10px;
-      }
+      display: block;
+      color: #777;
+      font-size: 15px;
+      margin-bottom: 10px;
+      padding-left: 5px;
     }
   }
   select {
@@ -269,19 +269,31 @@ input[type="radio"] {
   .logo {
     width: 100px;
   }
-  nav button {
-    padding: 5px 10px;
-  }
+  nav button,
   nav select {
-    padding: 5x 10px;
+    padding: 5px 10px;
   }
   .header-content {
     position: unset;
+    width: inherit;
+    height: inherit;
     transform: none;
+    height: 80%;
+    width: auto;
     padding-top: 10px;
     h1 {
       font-size: 30px;
       line-height: 50px;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    h4 {
+      font-size: 15px;
+      font-weight: 400;
+      margin-bottom: 10px;
     }
   }
   .email-signup button {
@@ -326,8 +338,19 @@ input[type="radio"] {
       padding: 15px;
       font-size: 16px;
     }
-    label::after {
+    .accordion-menu::after {
       font-size: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 1170px) {
+  .row {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-basis: 25%;
+    .col {
+      font-size: 10px;
+      margin: 15px;
     }
   }
 }
