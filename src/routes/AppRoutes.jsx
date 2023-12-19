@@ -7,7 +7,6 @@ import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
 import Watch from "../components/main/watch/Watch";
-import ConfirmChangeAvt from "../components/setting/profiles/confirmChangeAvt";
 
 const AppRoutes = () => {
   return (
@@ -18,7 +17,6 @@ const AppRoutes = () => {
       <Route path="/watch/:movieId" element={<Watch />} />
 
       <Route path="/profiles/manage" element={<Manage />} />
-      <Route path="/confirm-change-avt" element={<ConfirmChangeAvt />} />
 
       <Route path="/settings/restrictions" element={<Restrictions />} />
 
