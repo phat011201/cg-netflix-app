@@ -10,6 +10,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import InstructEdit from "./instructEdit";
 import Header from "./headerProfile";
+import "../scss/removeProfile.scss";
+import AvatarEdit from "./avatarEdit";
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +21,11 @@ export default function Manage() {
   const [addEditProfile, setAddEditProfile] = useState(false);
   const [editChildrenProfile, setEditChildrenProfile] = useState(false);
   const [instruct, setInstruct] = useState(false);
+  const [isCheckedNext, setIsCheckedNext] = useState(true);
+  const [isCheckedPreview, setIsCheckedPreview] = useState(true);
+  const [isCheckedChildren, setIsCheckedChildren] = useState(false);
+  const [removeProfile, setRemoveProfile] = useState(false);
+  const [avatarEdit, setAvatarEdit] = useState(false);
   const [listItems, setListItems] = useState([]);
   const navigate = useNavigate();
 
@@ -56,6 +63,43 @@ export default function Manage() {
     } else {
       setInstruct(false);
     }
+  };
+
+  const handleRemoveProfile = () => {
+    if (removeProfile == false) {
+      setRemoveProfile(true);
+    } else if (removeProfile) {
+      setRemoveProfile(false);
+    }
+  };
+
+  const GoToAvatarEdit = () => {
+    if (avatarEdit == false) {
+      setAvatarEdit(true);
+    } else if (avatarEdit) {
+      setAvatarEdit(false);
+    }
+  };
+
+  // Xử lý checkBox
+  const checkNext = cx("marker-checkAuto-next", { checkedNext: isCheckedNext });
+  const checkPreview = cx("marker-checkAuto-preview", {
+    checkedPreview: isCheckedPreview,
+  });
+  const checkChildren = cx("profile-kids-marker", {
+    checkedChildren: isCheckedChildren,
+  });
+
+  const handleCheckboxChangeNext = () => {
+    setIsCheckedNext((prevChecked) => !prevChecked);
+  };
+
+  const handleCheckboxChangePreview = () => {
+    setIsCheckedPreview((prevCheckedPrw) => !prevCheckedPrw);
+  };
+
+  const handleCheckboxChangeChildren = () => {
+    setIsCheckedChildren((prevCheckedChDr) => !prevCheckedChDr);
   };
 
   return (
@@ -138,8 +182,16 @@ export default function Manage() {
               </div>
               <div className={cx("profile-check")}>
                 <input type="checkbox" id="profile-addKids" />
-                <label htmlFor="profile-addKids"></label>
-                <span className={cx("profile-kids-marker")}>Trẻ em?</span>
+                <label
+                  htmlFor="profile-addKids"
+                  onClick={handleCheckboxChangeChildren}
+                ></label>
+                <span
+                  className={checkChildren}
+                  onClick={handleCheckboxChangeChildren}
+                >
+                  Trẻ em?
+                </span>
                 <span className={cx("profile-kids-tooltip")}>
                   Nếu chọn, hồ sơ này sẽ chỉ thấy chương trình truyền hình và
                   phim với xếp hạng độ tuổi từ 12 trở xuống.
@@ -171,7 +223,7 @@ export default function Manage() {
                   className={cx("position-imgEdit")}
                   src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUuLGcQufVfEdvvUAHLQsrM44kkQQ-ySZbbd8FLSC_AX52dznaYP1pR4Y4Pdi3LuX1rFFbTIt1sBxNYBQ3ZSz59Pg3fVgsLLU6H5.png?r=a82"
                 />
-                <a>
+                <a onClick={GoToAvatarEdit}>
                   <FontAwesomeIcon
                     className={cx("actionEditAvatar-editProfile")}
                     icon={faPen}
@@ -256,38 +308,30 @@ export default function Manage() {
                   <h2 className={cx("title-editProfile")}>
                     Điều chỉnh tự động phát
                   </h2>
+
                   <div className={cx("marker-next")}>
-                    <input
-                      type="checkbox"
-                      className={cx("autoPlay-next")}
-                      id="checkAuto-next"
-                    />
                     <span
-                      id="markerCheckNext"
-                      className={cx("marker-checkAuto-next")}
+                      className={checkNext}
+                      onClick={handleCheckboxChangeNext}
                     ></span>
                     <span
-                      id="markerCheckNext"
                       className={cx("content-autoPlay-next")}
+                      onClick={handleCheckboxChangeNext}
                     >
                       Tự động phát tập tiếp theo của một loạt phim trên tất cả
                       các thiết bị.
                     </span>
                   </div>
+
                   <div className={cx("marker-preview")}>
-                    <input
-                      type="checkbox"
-                      className={cx("autoPlay-preview")}
-                      id="showMarkerCheckPreview"
-                    />
                     <span
-                      id="markerCheckPreview"
-                      className={cx(
-                        "marker-checkAuto-preview",
-                        "showIconCheckPreview"
-                      )}
+                      className={checkPreview}
+                      onClick={handleCheckboxChangePreview}
                     ></span>
-                    <span className={cx("content-autoPlay-preview")}>
+                    <span
+                      className={cx("content-autoPlay-preview")}
+                      onClick={handleCheckboxChangePreview}
+                    >
                       Tự động phát nội dung xem trước trong khi duyệt tìm trên
                       tất cả các thiết bị.
                     </span>
@@ -308,7 +352,12 @@ export default function Manage() {
               >
                 Hủy
               </span>
-              <span className={cx("btn-deleteEditProfile")}>Xóa hồ sơ</span>
+              <span
+                className={cx("btn-deleteEditProfile")}
+                onClick={handleRemoveProfile}
+              >
+                Xóa hồ sơ
+              </span>
             </div>
           </div>
         </div>
@@ -381,37 +430,28 @@ export default function Manage() {
                     Điều chỉnh tự động phát
                   </h2>
                   <div className={cx("marker-next")}>
-                    <input
-                      type="checkbox"
-                      className={cx("autoPlay-next")}
-                      id="checkAuto-next"
-                    />
                     <span
-                      id="markerCheckNext"
-                      className={cx("marker-checkAuto-next")}
+                      className={checkNext}
+                      onClick={handleCheckboxChangeNext}
                     ></span>
                     <span
                       id="markerCheckNext"
                       className={cx("content-autoPlay-next")}
+                      onClick={handleCheckboxChangeNext}
                     >
                       Tự động phát tập tiếp theo của một loạt phim trên tất cả
                       các thiết bị.
                     </span>
                   </div>
                   <div className={cx("marker-preview")}>
-                    <input
-                      type="checkbox"
-                      className={cx("autoPlay-preview")}
-                      id="showMarkerCheckPreview"
-                    />
                     <span
-                      id="markerCheckPreview"
-                      className={cx(
-                        "marker-checkAuto-preview",
-                        "showIconCheckPreview"
-                      )}
+                      className={checkPreview}
+                      onClick={handleCheckboxChangePreview}
                     ></span>
-                    <span className={cx("content-autoPlay-preview")}>
+                    <span
+                      className={cx("content-autoPlay-preview")}
+                      onClick={handleCheckboxChangePreview}
+                    >
                       Tự động phát nội dung xem trước trong khi duyệt tìm trên
                       tất cả các thiết bị.
                     </span>
@@ -432,11 +472,47 @@ export default function Manage() {
               >
                 Hủy
               </span>
-              <span className={cx("btn-deleteEditProfile")}>Xóa hồ sơ</span>
+              <span
+                className={cx("btn-deleteEditProfile")}
+                onClick={handleRemoveProfile}
+              >
+                Xóa hồ sơ
+              </span>
             </div>
           </div>
         </div>
       )}
+
+      {/* remove Profile */}
+      {removeProfile && (
+        <div className="box-mainRemove">
+          <div className="box-remove">
+            <div className="title">
+              <h1>Xóa hồ sơ?</h1>
+            </div>
+            <div className="box-contentRemove">
+              <div className="box-avatar">
+                <img src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABfjwXqIYd3kCEU6KWsiHSHvkft8VhZg0yyD50a_pHXku4dz9VgxWwfA2ontwogStpj1NE9NJMt7sCpSKFEY2zmgqqQfcw1FMWwB9.png?r=229" />
+                <span>username</span>
+              </div>
+              <div className="box-content">
+                <span>
+                  Lịch sử của hồ sơ này, bao gồm Danh sách của tôi, đánh giá và
+                  hoạt động, sẽ mất vĩnh viễn và bạn sẽ không thể truy cập lại.
+                </span>
+              </div>
+            </div>
+            <div className="btn-remove">
+              <span className="retain-records" onClick={handleRemoveProfile}>
+                Giữ lại hồ sơ
+              </span>
+              <span className="remove-profile">Xóa hồ sơ</span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {avatarEdit && <AvatarEdit />}
     </>
   );
 }

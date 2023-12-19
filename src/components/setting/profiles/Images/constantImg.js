@@ -1,4 +1,20 @@
 import avatarInstruct from "../Images/avatar-instruct.jpg";
+import avatarEdit from "../Images/avatar-edit.jpg";
+import avatarChange from "../Images/avatar-instruct.jpg";
+import avatarCurrent from "../Images/avatar-edit.jpg";
+import imgTitle1 from "../Images/ImgTitle/img-title-1.jpg";
+import avatarClassic1 from "../Images/classic/classic-1.jpg";
+import avatarClassic2 from "../Images/classic/classic-2.jpg";
+import avatarClassic3 from "../Images/classic/classic-3.jpg";
+import avatarClassic4 from "../Images/classic/classic-4.jpg";
+import avatarClassic5 from "../Images/classic/classic-5.jpg";
+import avatarClassic6 from "../Images/classic/classic-6.jpg";
+import avatarClassic7 from "../Images/classic/classic-6.jpg";
+import avatarClassic8 from "../Images/classic/classic-6.jpg";
+import avatarClassic9 from "../Images/classic/classic-6.jpg";
+import avatarClassic10 from "../Images/classic/classic-5.jpg";
+import avatarClassic11 from "../Images/classic/classic-5.jpg";
+import avatarClassic12 from "../Images/classic/classic-5.jpg";
 
 export const logoImg = (
   <svg
@@ -142,4 +158,75 @@ const AVATAR = {
   alt: "Avatar Instruct",
 };
 
-export { AVATAR };
+const AVATAR_EDIT = {
+  src: avatarEdit,
+  alt: "Avatar Edit",
+};
+
+const IMG_TITLE_1 = {
+  src: imgTitle1,
+  alt: "Hình ảnh tiêu đề",
+};
+
+const CURRENT_AVT = {
+  src: avatarCurrent,
+  alt: "Avatar Current",
+};
+
+const CHANGE_AVT = {
+  src: avatarChange,
+  alt: "Avatar Current",
+};
+
+const CLASSIC = [
+  {
+    src: avatarClassic1,
+    alt: "Classic 1",
+  },
+  {
+    src: avatarClassic2,
+    alt: "Classic 2",
+  },
+  {
+    src: avatarClassic3,
+    alt: "Classic 3",
+  },
+  {
+    src: avatarClassic4,
+    alt: "Classic 4",
+  },
+  {
+    src: avatarClassic5,
+    alt: "Classic 5",
+  },
+  {
+    src: avatarClassic6,
+    alt: "Classic 6",
+  },
+  {
+    src: avatarClassic7,
+    alt: "Classic 7",
+  },
+  {
+    src: avatarClassic8,
+    alt: "Classic 8",
+  },
+  {
+    src: avatarClassic9,
+    alt: "Classic 9",
+  },
+  {
+    src: avatarClassic10,
+    alt: "Classic 10",
+  },
+  {
+    src: avatarClassic11,
+    alt: "Classic 11",
+  },
+  {
+    src: avatarClassic12,
+    alt: "Classic 12",
+  },
+];
+
+export { AVATAR, AVATAR_EDIT, CLASSIC, IMG_TITLE_1, CURRENT_AVT, CHANGE_AVT };

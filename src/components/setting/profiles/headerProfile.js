@@ -3,10 +3,11 @@ import "../scss/header.scss";
 import useScroll from "../../../hooks/useScroll";
 
 const Header = () => {
-  const isScrolled = useScroll(20);
-
+  const isScrolled = useScroll(60);
   return (
-    <div className={`header ${isScrolled ? `visible` : `hidden`}`}></div>
+    <>
+      <div className={`header ${isScrolled ? "visible" : "hidden"}`}></div>;
+    </>
   );
 };
 

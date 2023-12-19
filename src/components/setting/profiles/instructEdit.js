@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { AVATAR, avatarRank, iconNickname } from "./Images/logoImage";
+import { AVATAR, avatarRank, iconNickname } from "./Images/constantImg";
 import "../scss/instruct.scss";
 
 export default function InstructEdit() {

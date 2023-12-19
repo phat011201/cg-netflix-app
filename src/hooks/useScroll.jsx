@@ -9,12 +9,12 @@ const useScroll = (offset) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [offset]);
 
+  console.log(window.scrollY);
   return scrollPosition >= offset;
 };
 
