@@ -9,7 +9,7 @@ import BrowseFooter from "./BrowseFooter";
 
 import useMovieList from "../../../hooks/useMovieList";
 
-const Browse = () => {
+const Browse = React.memo(() => {
   const { data: movies = [] } = useMovieList();
 
   return (
@@ -24,6 +24,6 @@ const Browse = () => {
       </div>
     </>
   );
-};
+});
 
 export default Browse;

@@ -7,10 +7,13 @@ import MovieList from "./MovieList";
 import useMovieList from "../../../hooks/useMovieList";
 import useBillboard from "../../../hooks/useBillboard";
 import useStoreInfoModal from "../../../hooks/useStoreInfoModal";
+import useScroll from "../../../hooks/useScroll";
+import Loading from "./Loading";
 
 const Billboard = () => {
   const { openModal } = useStoreInfoModal();
   const { data, error, isLoading } = useBillboard();
+  const mutedOff = useScroll(800);
 
   const { data: movies = [] } = useMovieList();
 
@@ -21,7 +24,7 @@ const Billboard = () => {
   }, [openModal, data]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   if (error || !data) {
@@ -35,7 +38,7 @@ const Billboard = () => {
           poster={data.thumbnailUrl}
           className="w-full h-[56.25vw] object-cover brightness-[60%] transition duration-500"
           autoPlay
-          muted
+          muted={mutedOff ? "muted" : ""}
           loop
           src={data.videoUrl}
         ></video>
