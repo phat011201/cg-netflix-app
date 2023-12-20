@@ -2,9 +2,7 @@ import React, { useCallback } from "react";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 import PlayButton from "./PlayButton";
-import MovieList from "./MovieList";
 
-import useMovieList from "../../../hooks/useMovieList";
 import useBillboard from "../../../hooks/useBillboard";
 import useStoreInfoModal from "../../../hooks/useStoreInfoModal";
 import useScroll from "../../../hooks/useScroll";
@@ -14,8 +12,6 @@ const Billboard = () => {
   const { openModal } = useStoreInfoModal();
   const { data, error, isLoading } = useBillboard();
   const mutedOff = useScroll(800);
-
-  const { data: movies = [] } = useMovieList();
 
   const handleOpenModal = useCallback(() => {
     if (data && data.id) {
@@ -32,11 +28,11 @@ const Billboard = () => {
   }
 
   return (
-    <div className="relative h-[56.25vw]">
+    <div className="relative h-[40vw]">
       <div>
         <video
           poster={data.thumbnailUrl}
-          className="w-full h-[56.25vw] object-cover brightness-[60%] transition duration-500"
+          className="w-full h-[40vw] object-cover brightness-[60%] transition duration-500"
           autoPlay
           muted={mutedOff ? "muted" : ""}
           loop
@@ -74,9 +70,6 @@ const Billboard = () => {
               Thông tin khác
             </button>
           </div>
-        </div>
-        <div className="absolute bottom-[-7vw]">
-          <MovieList title="Trending Now" data={movies} />
         </div>
       </div>
     </div>

@@ -1,5 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
+import { HEADTITLE } from "../constants/constant";
+
 import Login from "../components/main/login/Login";
 import Register from "../components/main/register/Register";
 import Browse from "../components/main/browse/Browse";
@@ -13,7 +16,10 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Introduction />} />
 
-      <Route path="/browse" element={<Browse />} />
+      {HEADTITLE.map((item, index) => {
+        return <Route path={item.path} key={index} element={<Browse />} />;
+      })}
+
       <Route path="/watch/:movieId" element={<Watch />} />
 
       <Route path="/manage-profiles" element={<Manage />} />
