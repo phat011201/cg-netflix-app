@@ -22,7 +22,7 @@ const AppRoutes = () => {
 
       <Route path="/watch/:movieId" element={<Watch />} />
 
-      <Route path="/manage-profiles" element={<Manage />} />
+      <Route path="/profiles/manage" element={<Manage />} />
 
       <Route path="/settings/restrictions" element={<Restrictions />} />
 
