@@ -38,7 +38,9 @@ const Navbar = () => {
             showBackground ? "bg-zinc-900 bg-opacity-90" : ""
           }`}
         >
-          <img src={LOGO.src} className="h-4 lg:h-7" alt={LOGO.alt} />
+          {
+            LOGO.src
+          }
           <div className="flex-row ml-8 gap-7 hidden lg:flex">
             {HEADTITLE.map((item, index) => {
               return (

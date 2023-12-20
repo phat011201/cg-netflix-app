@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Emailpart from "./Emailpart";
 
 import "./style.scss";
-import logo from "../../assets/images/logo-long.png";
+import { logo } from "../../assets/images/index";
 
 function Introduction() {
   return (
@@ -11,7 +11,7 @@ function Introduction() {
       {/* Banner */}
       <section className="banner">
         <nav>
-          <img className="logo" src={logo} alt="logo" />
+          {logo}
           <div>
             <select name="">
               <option value="">Tiếng Việt</option>
