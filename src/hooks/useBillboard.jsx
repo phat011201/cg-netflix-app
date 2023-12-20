@@ -8,11 +8,13 @@ const useBillboard = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  
   useEffect(() => {
+    const random = Math.floor(Math.random() * 4);
     const fetchData = async () => {
       try {
         const response = await axios.get(MOVIES_API_URL + "videos");
-        setData(response.data[0]);
+        setData(response.data[random]);
       } catch (error) {
         setError("Error fetching data");
       } finally {
