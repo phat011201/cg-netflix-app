@@ -14,6 +14,7 @@ import "../scss/avatarEdit.scss";
 
 export default function AvatarEdit() {
   const [confirmChangeAvt, setConfirmChangeAvt] = useState(false);
+  const [slider, setSlider] = useState(null);
 
   const sliderRef = useRef([]);
 
@@ -76,13 +77,15 @@ export default function AvatarEdit() {
                 <li className="detail-list-avatars-themed">
                   <h2>Kinh điển</h2>
                   <div className="list-slider-avatars">
-                    <span
-                      id="icon-left-pre"
-                      className="icon-left handle-slide"
-                      onClick={() => handlePrev(0)}
-                    >
-                      <FontAwesomeIcon icon={faChevronLeft} />
-                    </span>
+                    {slider !== null && (
+                      <span
+                        id="icon-left-pre"
+                        className="icon-left handle-slide "
+                        onClick={() => handlePrev(0)}
+                      >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                      </span>
+                    )}
                     {/* slide */}
                     <div className="slider-avatarsEdit">
                       <div className="slider-img-avatars">
@@ -105,7 +108,7 @@ export default function AvatarEdit() {
                     </div>
                     <span
                       id="icon-left-next"
-                      className="icon-right handle-slide"
+                      className="icon-right handle-slide icon-next"
                       onClick={() => handleNext(0)}
                     >
                       <FontAwesomeIcon icon={faChevronRight} />
@@ -117,12 +120,14 @@ export default function AvatarEdit() {
                     <img src={IMG_TITLE_1.src} alt={IMG_TITLE_1.alt} />
                   </h2>
                   <div className="list-slider-avatars">
-                    <span
-                      className="icon-left handle-slide"
-                      onClick={() => handlePrev(1)}
-                    >
-                      <FontAwesomeIcon icon={faChevronLeft} />
-                    </span>
+                    {slider === 1 && (
+                      <span
+                        className="icon-left handle-slide"
+                        onClick={() => handlePrev(1)}
+                      >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                      </span>
+                    )}
                     {/* slide */}
                     <div className="slider-avatarsEdit">
                       <div className="slider-img-avatars">
@@ -156,12 +161,14 @@ export default function AvatarEdit() {
                     <img src={IMG_TITLE_1.src} alt={IMG_TITLE_1.alt} />
                   </h2>
                   <div className="list-slider-avatars">
-                    <span
-                      className="icon-left handle-slide"
-                      onClick={() => handlePrev(2)}
-                    >
-                      <FontAwesomeIcon icon={faChevronLeft} />
-                    </span>
+                    {slider === 2 && (
+                      <span
+                        className="icon-left handle-slide"
+                        onClick={() => handlePrev(2)}
+                      >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                      </span>
+                    )}
                     {/* slide */}
                     <div className="slider-avatarsEdit">
                       <div className="slider-img-avatars">

@@ -117,6 +117,7 @@
             .list-slider-avatars:hover .handle-slide svg {
               display: block;
             }
+
             .list-slider-avatars {
               position: relative;
               margin: 0 auto;
@@ -141,8 +142,7 @@
                 svg {
                   align-self: center;
                   display: none;
-                  transition: .2s ease-in-out;
-
+                  transition: 0.2s ease-in-out;
                 }
                 &:hover {
                   font-size: 36px;
@@ -160,7 +160,7 @@
                 z-index: 9;
                 border-top-right-radius: 6px;
                 border-bottom-right-radius: 6px;
-                // display: none;
+                display: none;
 
                 &::before {
                   content: "";
