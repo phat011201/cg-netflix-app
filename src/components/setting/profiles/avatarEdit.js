@@ -39,7 +39,7 @@ export default function AvatarEdit() {
   };
 
   const showModalConfirm = () => {
-    if (confirmChangeAvt == false) {
+    if (confirmChangeAvt === false) {
       setConfirmChangeAvt(true);
     } else {
       setConfirmChangeAvt(false);

@@ -17,11 +17,11 @@ export default function InstructEdit() {
   };
 
   const handleClose = () => {
-    if (currentBox == 1) {
+    if (currentBox === 1) {
       setCurrentBox(false);
-    } else if (currentBox == 2) {
+    } else if (currentBox === 2) {
       setCurrentBox(false);
-    } else if (currentBox == 3) {
+    } else if (currentBox === 3) {
       setCurrentBox(false);
     }
   };
