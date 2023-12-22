@@ -26,11 +26,10 @@ export default function Manage() {
   const [isCheckedChildren, setIsCheckedChildren] = useState(false);
   const [removeProfile, setRemoveProfile] = useState(false);
   const [avatarEdit, setAvatarEdit] = useState(false);
-  const [listItems, setListItems] = useState([]);
   const navigate = useNavigate();
 
   const handleAddNewProfile = () => {
-    if (addProfile == false) {
+    if (addProfile === false) {
       setAddProfile(true);
     } else if (addProfile) {
       setAddProfile(false);
@@ -38,7 +37,7 @@ export default function Manage() {
   };
 
   const handleAddEditProfile = () => {
-    if (addEditProfile == false) {
+    if (addEditProfile === false) {
       setAddEditProfile(true);
     } else if (addEditProfile) {
       setAddEditProfile(false);
@@ -46,7 +45,7 @@ export default function Manage() {
   };
 
   const handleEditChildrenProfile = () => {
-    if (editChildrenProfile == false) {
+    if (editChildrenProfile === false) {
       setEditChildrenProfile(true);
     } else {
       setEditChildrenProfile(false);
@@ -58,7 +57,7 @@ export default function Manage() {
   };
 
   const handleShowInstruct = () => {
-    if (instruct == false) {
+    if (instruct === false) {
       setInstruct(true);
     } else {
       setInstruct(false);
@@ -66,7 +65,7 @@ export default function Manage() {
   };
 
   const handleRemoveProfile = () => {
-    if (removeProfile == false) {
+    if (removeProfile === false) {
       setRemoveProfile(true);
     } else if (removeProfile) {
       setRemoveProfile(false);
@@ -74,7 +73,7 @@ export default function Manage() {
   };
 
   const GoToAvatarEdit = () => {
-    if (avatarEdit == false) {
+    if (avatarEdit === false) {
       setAvatarEdit(true);
     } else if (avatarEdit) {
       setAvatarEdit(false);
