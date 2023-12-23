@@ -7,6 +7,7 @@ import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
 import Watch from "../components/main/watch/Watch";
+import ContactUs from "../components/contactus/ContactUs";
 
 const AppRoutes = () => {
   return (
@@ -25,6 +26,8 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
 
       <Route path="/support" element={<div>Support</div>} />
+      
+      <Route path="/contactus" element={<div><ContactUs /></div>} />
     </Routes>
   );
 };

@@ -231,6 +231,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 
@@ -283,14 +284,27 @@
     height: 380px;
     background-color: #fff;
     border: 1px solid #ccc;
+    overflow: auto;
 }
-
+.list-country {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
 .item-country {
     height: 44px;
     padding: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #888;
+    }
 }
-.country-select-option-flag {
 
+.country-select-option-flag {
+    
+}
+.country-select-option-name {
+    padding: 0 10px;
 }
 .country-select-option-code {
     

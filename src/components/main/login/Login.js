@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { logo } from '../../../assets/images';
 import styles from './Login.module.scss'
 import { useState } from "react";
-import axios from "axios";
 
 const cx = classNames.bind(styles)
 
@@ -36,18 +35,13 @@ function Login() {
         const validationErrors = validateForm(user);
         setErrors(validationErrors);
         if (Object.keys(validationErrors).length === 0) {
-        sendDataToApi()
-        navigate('/register/step2')
+        navigate('/browse')
         }
     };
-    const sendDataToApi = async () => {
-    try {
-      await axios.post('https://65788648f08799dc80458521.mockapi.io/api/v1/users', user);
-
-    } catch (error) {
-      console.error('Error submitting data:', error);
+    const handleChaneUser = (e)=>{
+        setUser((prevUser=>({...prevUser,[e.target.name]:e.target.value}))
+            )
     }
-  };
     const validateForm = (data)=>{
         let errors = {}
         if (!data.email.trim()) {
@@ -81,7 +75,7 @@ function Login() {
                         </h1>
                         <form className={cx('login-form')}>
                             <div className={cx('input-container')}>
-                                <input type="text" className={cx('input')}/>
+                                <input type="text" name="email" className={cx('input')} value={user.name} onChange={handleChaneUser}/>
                                 <label className={cx('label')}>
                                      Email hoặc số điện thoại
                                 </label>
@@ -89,7 +83,7 @@ function Login() {
                             {errors.email && <p className={cx('noti-err')}>{errors.email}</p>}
 
                             <div className={cx('input-container')}>
-                                <input type="password" name="password" className={cx('input')}/>
+                                <input type="password" name="password" value={user.password} className={cx('input')} onChange={handleChaneUser}/>
                                 <label className={cx('label')}>
                                      Mật khẩu
                                 </label>
