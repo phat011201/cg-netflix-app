@@ -21,15 +21,19 @@ const cx = classNames.bind(styles)
 function Register() {
     const { step } = useParams()
     const navigate = useNavigate()
+    const [optionPayment, setOptionPayment] = useState('plandChoice0')
 
     const [user, setUser] = useState({email:'',password:''})
+    const [errors, setErrors] = useState({});
+    const handleChangeOption = (e)=>{
+        setOptionPayment(e.target.value)
+    }
     const handleChaneUser = (e)=>{
         setUser((prevUser=>({...prevUser,[e.target.name]:e.target.value}))
             )
     }
 
 
-    const [errors, setErrors] = useState({});
     const handleSubmitRegister = (event)=>{
         event.preventDefault();
 
@@ -169,27 +173,27 @@ function Register() {
                         <div className={cx('plandGrid-header')}>
                             <div className={cx('plandGrid-selector')}>
                                 <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice0'>
-                                    <input type='radio' name='plandChoice' className={cx('plandGrid-selector-input')} id='plandGrid-choice0'/>
-                                    <span className={cx('plandGrid-selector-label')}>
+                                    <input type='radio' name='plandChoice' value='plandChoice0' className={cx('plandGrid-selector-input')} id='plandGrid-choice0' onChange={handleChangeOption}/>
+                                    <span className={cx('plandGrid-selector-label',{'plandGrid-selected-label' : optionPayment==='plandChoice0'})}>
                                         Di động
                                     </span>
                                 </label>
-                                <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice0'>
-                                    <input type='radio' name='plandChoice' className={cx('plandGrid-selector-input')} id='plandGrid-choice0'/>
-                                    <span className={cx('plandGrid-selector-label')}>
-                                        Di động
+                                <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice1'>
+                                    <input type='radio' name='plandChoice' value='plandChoice1' className={cx('plandGrid-selector-input')} id='plandGrid-choice1' onChange={handleChangeOption}/>
+                                    <span className={cx('plandGrid-selector-label',{'plandGrid-selected-label' : optionPayment==='plandChoice1'})}>
+                                        Cơ bản
                                     </span>
                                 </label>
-                                <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice0'>
-                                    <input type='radio' name='plandChoice' className={cx('plandGrid-selector-input')} id='plandGrid-choice0'/>
-                                    <span className={cx('plandGrid-selector-label')}>
-                                        Di động
+                                <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice2'>
+                                    <input type='radio' name='plandChoice' value='plandChoice2' className={cx('plandGrid-selector-input')} id='plandGrid-choice2' onChange={handleChangeOption}/>
+                                    <span className={cx('plandGrid-selector-label',{'plandGrid-selected-label' : optionPayment==='plandChoice2'})}>
+                                        Tiêu chuẩn
                                     </span>
                                 </label>
-                                <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice0'>
-                                    <input type='radio' name='plandChoice' className={cx('plandGrid-selector-input')} id='plandGrid-choice0'/>
-                                    <span className={cx('plandGrid-selector-label')}>
-                                        Di động
+                                <label className={cx('plandGrid-selector-choice')} for='plandGrid-choice3'>
+                                    <input type='radio' name='plandChoice' value='plandChoice3' className={cx('plandGrid-selector-input')} id='plandGrid-choice3' onChange={handleChangeOption}/>
+                                    <span className={cx('plandGrid-selector-label',{'plandGrid-selected-label' : optionPayment==='plandChoice3'})}>
+                                       Cao cấp
                                     </span>
                                 </label>
                                 
@@ -199,28 +203,28 @@ function Register() {
                             <tbody className={cx('plandGrid-feature-table-body')}>
                                 <tr className={cx('plandGrid-feature-table-row')}>
                                     <th className={cx('plandGrid-featureCell')}>Giá hàng tháng</th>
-                                    <td className={cx('plandGrid-cell' )}>70.000 đ</td>
-                                    <td className={cx('plandGrid-cell' )}>108.000 ₫</td>
-                                    <td className={cx('plandGrid-cell' )}>220.000 ₫</td>
-                                    <td className={cx('plandGrid-cell' )}>260.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice0'})}>70.000 đ</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice1'} )}>108.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice2'} )}>220.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice3'} )}>260.000 ₫</td>
                                 </tr>
                                 <tr className={cx('plandGrid-feature-table-row')}>
                                     <th className={cx('plandGrid-featureCell')}>Chất lưọng video</th>
-                                    <td className={cx('plandGrid-cell' )}>70.000 đ</td>
-                                    <td className={cx('plandGrid-cell' )}>108.000 ₫</td>
-                                    <td className={cx('plandGrid-cell' )}>220.000 ₫</td>
-                                    <td className={cx('plandGrid-cell' )}>260.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice0'} )}>70.000 đ</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice1'} )}>108.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice2'} )}>220.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice3'} )}>260.000 ₫</td>
                                 </tr>
                                 <tr className={cx('plandGrid-feature-table-row')}>
                                     <th className={cx('plandGrid-featureCell')}>Độ phân giải</th>
-                                    <td className={cx('plandGrid-cell' )}>70.000 đ</td>
-                                    <td className={cx('plandGrid-cell' )}>108.000 ₫</td>
-                                    <td className={cx('plandGrid-cell' )}>220.000 ₫</td>
-                                    <td className={cx('plandGrid-cell' )}>260.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice0'} )}>70.000 đ</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice1'} )}>108.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice2'} )}>220.000 ₫</td>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice3'} )}>260.000 ₫</td>
                                 </tr>
                                 <tr className={cx('plandGrid-feature-table-row')}>
                                     <th className={cx('plandGrid-featureCell')}>Các thiết bị có thể dùng xem</th>
-                                    <td className={cx('plandGrid-cell' )}>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice0'} )}>
                                         <div>
                                                 <FontAwesomeIcon icon={faMobileScreenButton} />
                                             <div>
@@ -235,7 +239,7 @@ function Register() {
                                         </div>
 
                                     </td>
-                                    <td className={cx('plandGrid-cell' )}>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice1'} )}>
                                         <div>
                                                 <FontAwesomeIcon icon={faMobileScreenButton} />
                                             <div>
@@ -261,7 +265,7 @@ function Register() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td className={cx('plandGrid-cell' )}>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice2'} )}>
                                         <div>
                                                 <FontAwesomeIcon icon={faMobileScreenButton} />
                                             <div>
@@ -287,7 +291,7 @@ function Register() {
                                             </div>
                                         </div>
                                     </td>
-                                    <td className={cx('plandGrid-cell' )}>
+                                    <td className={cx('plandGrid-cell',{'selected' : optionPayment==='plandChoice3'})}>
                                         <div>
                                                 <FontAwesomeIcon icon={faMobileScreenButton} />
                                             <div>
@@ -333,7 +337,7 @@ function Register() {
                     </button>
                 </div>}
                 {/* thanh toán */}
-                {((step ==='paymentPicker') || (step ==='creditOption') || (step ==='mobileWalletOption'))&& <Payment />}
+                {((step ==='paymentPicker') || (step ==='creditOption') || (step ==='mobileWalletOption'))&& <Payment option={optionPayment} />}
             </DefaultLayout>
     </> );
 }

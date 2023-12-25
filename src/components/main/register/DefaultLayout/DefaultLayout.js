@@ -46,7 +46,7 @@ function DefaultLayout( {children} ) {
         <div className={cx('wrapper-footer')}>
             <div className={cx('footer')}>
                 <p className={cx('footer-top')}>
-                    <a href='/'>Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
+                    <a href='/contactus'>Bạn có câu hỏi? Liên hệ với chúng tôi.</a>
                 </p>
                 <ul className={cx('footer-links')}>
                     {LIST_LINK.map((item,index)=>(<li key={index} className={cx('footer-link-item')}>
