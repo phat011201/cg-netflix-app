@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { logo } from "../../assets/images/index";
+import { LOGO } from "../../constants/constant";
 import "./style.scss";
 
 function Navbar() {
@@ -11,14 +11,18 @@ function Navbar() {
   return (
     <>
       <nav>
-        {logo}
+        <img src={LOGO.src} alt="" />
         <div>
           <select name="">
             <option value="">Tiếng Việt</option>
             <option value="">English</option>
             <option value="">日本語</option>
           </select>
-          <button className="login-button" type="submit" onClick={navigateToLogin}>
+          <button
+            className="login-button"
+            type="submit"
+            onClick={navigateToLogin}
+          >
             Đăng nhập
           </button>
         </div>

@@ -2,12 +2,23 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./style.scss";
-import { MOVIES_API_URL } from "../../constants/constant";
-import axios from "axios";
+
+import useUsers from "../../hooks/useUsers";
 
 function Emailpart() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+
+  const { data } = useUsers();
+
+  const checkEmail = () => {
+    var isIncluded = data.some((e) => e.email === email);
+    if (isIncluded) {
+      navigate("/login");
+    } else {
+      navigate("/register");
+    }
+  };
 
   const handleEmailChange = (event) => {
     let value = event.target.value;
@@ -16,20 +27,6 @@ function Emailpart() {
 
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  const apiUrl = MOVIES_API_URL + "users";
-
-  const checkEmail = () => {
-    axios.get(apiUrl).then(async (response) => {
-      const emailList = await response.data;
-      var isIncluded = emailList.some((e) => e.email == email);
-      if (isIncluded) {
-        navigate("/login");
-      } else {
-        navigate("/register");
-      }
-    });
   };
 
   const handleButtonPress = (event) => {

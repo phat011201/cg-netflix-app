@@ -2,7 +2,7 @@ import { logo } from "../assets/images/index.js";
 import profileImg from "../assets/images/default-profile.jpg";
 
 const LOGO = {
-  src: logoImg,
+  src: logo,
   alt: "logo",
 };
 
