@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./style.scss";
+import { MOVIES_API_URL } from "../../constants/constant";
+import axios from "axios";
 
 function Emailpart() {
   const [email, setEmail] = useState("");
@@ -16,16 +18,34 @@ function Emailpart() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleButtonPress = () => {
+  const apiUrl = MOVIES_API_URL + "users";
+
+  const checkEmail = () => {
+    axios.get(apiUrl).then(async (response) => {
+      const emailList = await response.data;
+      var isIncluded = emailList.some((e) => e.email == email);
+      if (isIncluded) {
+        navigate("/login");
+      } else {
+        navigate("/register");
+      }
+    });
+  };
+
+  const handleButtonPress = (event) => {
+    event.preventDefault();
+    console.log(email);
+
     if (isValidEmail(email)) {
-      navigate("/register/:step?");
+      setEmail(email);
+      checkEmail();
     } else {
       console.log("Email không hợp lệ!");
     }
   };
 
   return (
-    <form action="" className="email-signup">
+    <form onSubmit={handleButtonPress} className="email-signup">
       <input
         type="email"
         placeholder="Địa chỉ email"
@@ -34,9 +54,7 @@ function Emailpart() {
         required
       />
 
-      <button type="submit" onClick={handleButtonPress}>
-        Bắt đầu
-      </button>
+      <button type="submit">Bắt đầu</button>
     </form>
   );
 }

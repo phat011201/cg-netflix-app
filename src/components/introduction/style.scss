@@ -28,7 +28,7 @@ $bd-radius: 5px;
 
 .banner {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(./../../images/bgimg.jpg);
+    url(./../../assets/images//introduction/bgimg.jpg);
   background-size: cover;
   background-position: 50% 50%;
   padding: 10px 8px;
@@ -45,7 +45,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 
-  button {
+  .login-button {
     @include button-hover();
     @include button-style();
   }

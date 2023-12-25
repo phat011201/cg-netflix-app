@@ -1,4 +1,4 @@
-import logoImg from "../assets/images/logo-long.png";
+import logoImg from "../assets/images/introduction/logo-long.png";
 import profileImg from "../assets/images/default-profile.jpg";
 
 const LOGO = {
