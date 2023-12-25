@@ -3,9 +3,22 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./style.scss";
 
+import useUsers from "../../hooks/useUsers";
+
 function Emailpart() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+
+  const { data } = useUsers();
+
+  const checkEmail = () => {
+    var isIncluded = data.some((e) => e.email === email);
+    if (isIncluded) {
+      navigate("/login");
+    } else {
+      navigate("/register");
+    }
+  };
 
   const handleEmailChange = (event) => {
     let value = event.target.value;
@@ -16,16 +29,20 @@ function Emailpart() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleButtonPress = () => {
+  const handleButtonPress = (event) => {
+    event.preventDefault();
+    console.log(email);
+
     if (isValidEmail(email)) {
-      navigate("/register/:step?");
+      setEmail(email);
+      checkEmail();
     } else {
       console.log("Email không hợp lệ!");
     }
   };
 
   return (
-    <form action="" className="email-signup">
+    <form onSubmit={handleButtonPress} className="email-signup">
       <input
         type="email"
         placeholder="Địa chỉ email"
@@ -34,9 +51,7 @@ function Emailpart() {
         required
       />
 
-      <button type="submit" onClick={handleButtonPress}>
-        Bắt đầu
-      </button>
+      <button type="submit">Bắt đầu</button>
     </form>
   );
 }
