@@ -3,24 +3,12 @@ import { Link } from "react-router-dom";
 import Emailpart from "./Emailpart";
 import Navbar from "./Navbar";
 import "./style.scss";
-// import { logo } from "../../assets/images/index";
 
 function Introduction() {
   return (
     <>
       {/* Banner */}
       <section className="banner">
-        {/* <nav>
-          {logo}
-          <div>
-            <select name="">
-              <option value="">Tiếng Việt</option>
-              <option value="">English</option>
-              <option value="">日本語</option>
-            </select>
-            <button>Đăng nhập</button>
-          </div>
-        </nav> */}
         <Navbar />
 
         <div className="header-content">
