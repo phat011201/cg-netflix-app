@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   BellIcon,
   MagnifyingGlassIcon,
@@ -15,26 +15,13 @@ import NavbarItem from "./NavbarItem";
 import MobileMenu from "../mobile/MobileMenu";
 import AccountMenu from "./AccountMenu";
 
+import useScroll from "../../../hooks/useScroll";
+
 const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showBackground, setShowBackground] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= TOP_OFFSET) {
-        setShowBackground(true);
-      } else {
-        setShowBackground(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const showBackground = useScroll(TOP_OFFSET);
 
   const toggleAccountMenu = useCallback(() => {
     setShowAccountMenu((current) => !current);
@@ -51,7 +38,9 @@ const Navbar = () => {
             showBackground ? "bg-zinc-900 bg-opacity-90" : ""
           }`}
         >
-          <img src={LOGO.src} className="h-4 lg:h-7" alt={LOGO.alt} />
+          {
+            LOGO.src
+          }
           <div className="flex-row ml-8 gap-7 hidden lg:flex">
             {HEADTITLE.map((item, index) => {
               return (

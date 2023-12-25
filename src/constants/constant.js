@@ -18,15 +18,7 @@ const HEADTITLE = [
   {
     title: "Phim",
     path: "/films",
-  },
-  {
-    title: "Mới & Phổ biến",
-    path: "/newandpopular",
-  },
-  {
-    title: "Duyệt tìm theo ngôn ngữ",
-    path: "/browsebylanguage",
-  },
+  }
 ];
 
 const PROFILE = {
