@@ -18,7 +18,7 @@ const HEADTITLE = [
   {
     title: "Phim",
     path: "/films",
-  }
+  },
 ];
 
 const PROFILE = {

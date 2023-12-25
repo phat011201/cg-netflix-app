@@ -1,7 +1,7 @@
 import React from "react";
+import { Link} from "react-router-dom";
 
 const AccountMenu = ({ visible }) => {
-
   if (!visible) {
     return null;
   }
@@ -15,14 +15,15 @@ const AccountMenu = ({ visible }) => {
             src="/images/default-blue.png"
             alt=""
           />
-          <p className="text-white text-sm group-hover/item:underline">
+          <p
+            className="text-white text-sm group-hover/item:underline"
+          >
+            <Link to={"/profiles/manage"}>Quản lý hồ sơ</Link>
           </p>
         </div>
       </div>
       <hr className="bg-gray-600 border-0 h-px my-4" />
-      <div
-        className="px-3 text-center text-white text-sm hover:underline"
-      >
+      <div className="px-3 text-center text-white text-sm hover:underline">
         Sign out of Netflix
       </div>
     </div>

@@ -1,75 +1,122 @@
-import React from "react";
+import React, { useState } from "react";
+import "../scss/removeProfile.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from "../scss/manage.module.scss";
 import { Link } from "react-router-dom";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import "../scss/removeProfile.scss";
-import { useNavigate } from "react-router-dom";
+import {
+  CHOOSE_PROFILE_C,
+  CHOOSE_PROFILE_M,
+  CHOOSE_PROFILE_U,
+} from "../../../assets/images/settings/constantImg";
+import ShowListEdit from "./showListEdit";
+import Browse from "../../main/browse/Browse";
 
 const cx = classNames.bind(styles);
 
 export default function ChooseProfile() {
-  const navigate = useNavigate();
+  const [componentProfile, setComponentProfile] = useState("");
+  const [state, setState] = useState(true);
 
-  const handleManageProfile = () => {
-    navigate("/profiles/manage");
+  const changeProfile = (type) => {
+    setComponentProfile(type);
   };
+
+  let currentProfile;
+  if (componentProfile === "goToShowListProfile") {
+    currentProfile = <ShowListEdit />;
+  } else if (componentProfile === "backBrowse") {
+    currentProfile = <Browse />;
+    setState(false);
+  }
 
   return (
     <>
-      <div className={cx("main-box-profile")}>
-        <div className={cx("box-profile")}>
-          <h1 className={cx("title-profile")}>Ai đang xem?</h1>
-          <ul className={cx("choose-profile")}>
-            <li className={cx("profile")}>
-              <div className={cx("manage-profile")}>
-                <a href="#" className={cx("profile-link")}>
-                  <div className={cx("profile-avatar")}>
-                    <div
-                      className={cx("detail-avatar", "choose-profile-browse")}
-                    >
-                      <img src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUuLGcQufVfEdvvUAHLQsrM44kkQQ-ySZbbd8FLSC_AX52dznaYP1pR4Y4Pdi3LuX1rFFbTIt1sBxNYBQ3ZSz59Pg3fVgsLLU6H5.png?r=a82" />
-                    </div>
-                  </div>
-                  <span className={cx("profile-name")}>Name Profile</span>
-                </a>
-              </div>
-            </li>
-            <li className={cx("profile")}>
-              <div className={cx("manage-profile")}>
-                <a href="#" className={cx("profile-link")}>
-                  <div className={cx("profile-avatar")}>
-                    <div
-                      className={cx("detail-avatar", "choose-profile-browse")}
-                    >
-                      <img src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABYmm-ATwKte0yDKZrjQctLqfq-DKbmHaG-b0kw-WCBljB4_seGydhXDwo57rw-bHXCp6_laFFHDZp691qpVaX9HrdhQ7o3kxUb6W.png?r=d73" />
-                    </div>
-                  </div>
-                  <span className={cx("profile-name")}>Name Profile</span>
-                </a>
-              </div>
-            </li>
-            <li className={cx("profile")}>
-              <div className={cx("manage-profile")}>
-                <a href="#" className={cx("profile-link")}>
-                  <div className={cx("profile-avatar")}>
-                    <div className={cx("detail-avatar")}>
-                      <div className={cx("add-profile")}>
-                        <FontAwesomeIcon icon={faCirclePlus} />
+      {state && (
+        <div className={cx("main-box-profile")}>
+          <div className={cx("box-profile")}>
+            <h1 className={cx("title-profile")}>Ai đang xem?</h1>
+            <ul className={cx("choose-profile")}>
+              <li
+                className={cx("profile")}
+                onClick={() => changeProfile("backBrowse")}
+              >
+                <div className={cx("manage-profile")}>
+                  <Link className={cx("profile-link")}>
+                    <div className={cx("profile-avatar")}>
+                      <div
+                        className={cx("detail-avatar", "choose-profile-browse")}
+                      >
+                        <img src={CHOOSE_PROFILE_M} alt="Choose Profile Main" />
                       </div>
                     </div>
-                  </div>
-                  <span className={cx("profile-name")}>Thêm hồ sơ</span>
-                </a>
-              </div>
-            </li>
-          </ul>
-          <div className={cx("btn-profile", "btn-chooseProfile-browse")}>
-            <Link to="/profiles/manage">Quản lý hồ sơ</Link>
+                    <span className={cx("profile-name")}>Main Profile</span>
+                  </Link>
+                </div>
+              </li>
+              <li
+                className={cx("profile")}
+                onClick={() => changeProfile("backBrowse")}
+              >
+                <div className={cx("manage-profile")}>
+                  <Link className={cx("profile-link")}>
+                    <div className={cx("profile-avatar")}>
+                      <div
+                        className={cx("detail-avatar", "choose-profile-browse")}
+                      >
+                        <img src={CHOOSE_PROFILE_U} alt="Choose Profile User" />
+                      </div>
+                    </div>
+                    <span className={cx("profile-name")}>Name Profile</span>
+                  </Link>
+                </div>
+              </li>
+              <li
+                className={cx("profile")}
+                onClick={() => changeProfile("backBrowse")}
+              >
+                <div className={cx("manage-profile")}>
+                  <Link className={cx("profile-link")}>
+                    <div className={cx("profile-avatar")}>
+                      <div
+                        className={cx("detail-avatar", "choose-profile-browse")}
+                      >
+                        <img
+                          src={CHOOSE_PROFILE_C}
+                          alt="Choose Profile Children"
+                        />
+                      </div>
+                    </div>
+                    <span className={cx("profile-name")}>Children Profile</span>
+                  </Link>
+                </div>
+              </li>
+              <li className={cx("profile")}>
+                <div className={cx("manage-profile")}>
+                  <Link className={cx("profile-link")}>
+                    <div className={cx("profile-avatar")}>
+                      <div className={cx("detail-avatar")}>
+                        <div className={cx("add-profile")}>
+                          <FontAwesomeIcon icon={faCirclePlus} />
+                        </div>
+                      </div>
+                    </div>
+                    <span className={cx("profile-name")}>Thêm hồ sơ</span>
+                  </Link>
+                </div>
+              </li>
+            </ul>
+            <div className={cx("btn-profile", "btn-chooseProfile-browse")}>
+              <Link onClick={() => changeProfile("goToShowListProfile")}>
+                Quản lý hồ sơ
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {currentProfile}
     </>
   );
 }

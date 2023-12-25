@@ -11,8 +11,7 @@ import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
 import Watch from "../components/main/watch/Watch";
 import ContactUs from "../components/contactus/ContactUs";
-import ChooseProfile from "../components/setting/profiles/chooseProfile";
-import ProfileMain from "../components/setting/profiles/profileMain";
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -27,8 +26,6 @@ const AppRoutes = () => {
       <Route path="/profiles/manage" element={<Manage />} />
 
       <Route path="/settings/restrictions" element={<Restrictions />} />
-      <Route path="/browse/chooseProfile" element={<ChooseProfile />} />
-      <Route path="/profiles/manage/profile-main" element={<ProfileMain />} />
 
       <Route path="/register/:step?" element={<Register />} />
 
