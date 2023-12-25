@@ -1,26 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Emailpart from "./Emailpart";
-
+import Navbar from "./Navbar";
 import "./style.scss";
-import { logo } from "../../assets/images/index";
 
 function Introduction() {
   return (
     <>
       {/* Banner */}
       <section className="banner">
-        <nav>
-          {logo}
-          <div>
-            <select name="">
-              <option value="">Tiếng Việt</option>
-              <option value="">English</option>
-              <option value="">日本語</option>
-            </select>
-            <button>Đăng nhập</button>
-          </div>
-        </nav>
+        <Navbar />
+
 
         <div className="header-content">
           <h1>
@@ -32,19 +22,6 @@ function Introduction() {
             cách thành viên của bạn.
           </h4>
           <Emailpart />
-          {/* <form action="" className="email-signup">
-            <input
-              type="email"
-              placeholder="Địa chỉ email"
-              onChangeText={handleEmailChange(email)}
-              value={email}
-              required
-            />
-
-            <button type="submit" onPress={handleButtonPress()}>
-              Bắt đầu
-            </button>
-          </form> */}
         </div>
       </section>
       {/* Features */}
@@ -199,10 +176,6 @@ function Introduction() {
             Bạn đã sẵn sàng xem chưa? Nhập email để tạo hoặc kích hoạt lại tư
             cách thành viên của bạn.
           </h4>
-          {/* <form action="" className="email-signup">
-            <input type="email" placeholder="Địa chỉ email" required />
-            <button type="submit">Bắt đầu</button>
-          </form> */}
           <Emailpart />
         </small>
       </section>
