@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import "../scss/confirmChangeAvt.scss";
-import { CHANGE_AVT, CURRENT_AVT } from "./Images/constantImg";
+import "../../scss/confirmChangeAvt.scss";
+import {
+  CHANGE_AVT,
+  CURRENT_AVT,
+} from "../../../../assets/images/settings/constantImg";
+import AvatarEdit from "./avatarEdit";
+import EditProfile from "../editProfile";
 
 export default function ConfirmChangeAvt() {
+  const [componentProfile, setComponentProfile] = useState("");
+
+  const changeProfile = (type) => {
+    setComponentProfile(type);
+  };
+
+  let currentComponent;
+
+  if (componentProfile === "backAvatarEdit") {
+    currentComponent = <AvatarEdit />;
+  } else if (componentProfile === "backEditProfile") {
+    currentComponent = <EditProfile />;
+  }
+
   return (
     <>
       <div className="box-mainConfirmChange">
@@ -26,11 +45,22 @@ export default function ConfirmChangeAvt() {
             </div>
           </div>
           <div className="btn-ConfirmChange">
-            <button className="btn-agree">Đồng ý</button>
-            <button className="btn-notYet">Vẫn chưa</button>
+            <button
+              className="btn-agree"
+              onClick={() => changeProfile("backEditProfile")}
+            >
+              Đồng ý
+            </button>
+            <button
+              className="btn-notYet"
+              onClick={() => changeProfile("backAvatarEdit")}
+            >
+              Vẫn chưa
+            </button>
           </div>
         </div>
       </div>
+      {currentComponent}
     </>
   );
 }

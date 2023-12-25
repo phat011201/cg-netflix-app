@@ -2,25 +2,21 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import styles from "../scss/manage.module.scss";
-import {
-  faPen,
-  faTriangleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 import "../scss/removeProfile.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { CHOOSE_PROFILE_M } from "../../../assets/images/settings/constantImg";
+import { CHOOSE_PROFILE_C } from "../../../assets/images/settings/constantImg";
 import ShowListEdit from "./showListEdit";
+import RemoveProfile from "./removeProfile";
 import AvatarEdit from "./avatar/avatarEdit";
-import ModalProfile from "./modalProfile";
 import Header from "./headerProfile";
 
 const cx = classNames.bind(styles);
 
-export default function ProfileMain() {
+export default function EditProfileChildren() {
   const [isCheckedNext, setIsCheckedNext] = useState(true);
   const [isCheckedPreview, setIsCheckedPreview] = useState(true);
   const [componentProfile, setComponentProfile] = useState("");
-  const [stateModal, setStateModal] = useState(null);
   const navigate = useNavigate();
 
   const changeProfile = (type) => {
@@ -28,21 +24,15 @@ export default function ProfileMain() {
   };
 
   let currentComponent;
-  if (componentProfile === "backShowListEdit") {
+  if (componentProfile === "backShowList") {
     currentComponent = <ShowListEdit />;
+  } else if (componentProfile === "goToRemoveProfile") {
+    currentComponent = <RemoveProfile />;
   } else if (componentProfile === "goToAvatarEdit") {
     currentComponent = <AvatarEdit />;
   }
 
-  const openModal = (Id) => {
-    setStateModal(Id);
-  };
-
-  const closeModal = () => {
-    setStateModal(null);
-  };
-
-  // Xử lý checkBox
+  // handle checkBox
   const checkNext = cx("marker-checkAuto-next", { checkedNext: isCheckedNext });
   const checkPreview = cx("marker-checkAuto-preview", {
     checkedPreview: isCheckedPreview,
@@ -58,17 +48,17 @@ export default function ProfileMain() {
 
   return (
     <>
-      {/* Profile Edit main */}
       <div className={cx("box-mainEditProfile")}>
-        <div className={cx("box-actionEditProfile")}>
+        <div className={cx("header")}></div>
+        <div className={cx("box-actionEditProfile", "box-childrenEditProfile")}>
           <Header />
           <h1 className={cx("title-editProfile")}>Chỉnh sửa hồ sơ</h1>
           <div className={cx("content-editProfile")}>
             <div className={cx("img-editProfile")}>
               <img
                 className={cx("position-imgEdit")}
-                src={CHOOSE_PROFILE_M}
-                alt="Img Profile Main"
+                src={CHOOSE_PROFILE_C}
+                alt="Img Edit Profile Children"
               />
               <Link onClick={() => changeProfile("goToAvatarEdit")}>
                 <FontAwesomeIcon
@@ -95,48 +85,13 @@ export default function ProfileMain() {
                 </select>
               </div>
 
-              <div className={cx("nickname-editProfile")}>
-                <h2 className={cx("title-editProfile")}>
-                  Biệt hiệu trong trò chơi:
-                </h2>
-                <p className={cx("content-nickname")}>
-                  Biệt hiệu của bạn là một cái tên đặc biệt, sẽ được sử dụng để
-                  chơi cùng các thành viên Netflix khác xuyên suốt các trò chơi
-                  Netflix.
-                </p>
-                <button
-                  className={cx("findOutMore-editProfile")}
-                  onClick={() => openModal(1)}
-                >
-                  Tìm hiểu thêm
-                </button>
-                <div className={cx("createNickName-editProfile")}>
-                  <input
-                    className={cx(
-                      "createNickNameInput",
-                      "checkInput-editProfile"
-                    )}
-                    type="text"
-                    placeholder="Tạo biệt hiệu trong trò chơi"
-                  />
-                  <div className={cx("checkCreateNickName")}>
-                    <p className={cx("checkTool")}>
-                      <FontAwesomeIcon icon={faTriangleExclamation} />
-                      <span className={cx("warning-icon")}>
-                        Phải dài hơn 2 ký tự
-                      </span>
-                    </p>
-                    <p className={cx("checkCharacters")}>0/16</p>
-                  </div>
-                </div>
-              </div>
-
               <div className={cx("settingAge-editProfile")}>
                 <h2 className={cx("title-editProfile")}>Cài đặt độ tuổi:</h2>
-                <button className={cx("allAge")}>Mọi độ tuổi</button>
+                <button className={cx("allAge")}>Trẻ em</button>
+                <button className={cx("ageChildren")}>10+</button>
                 <p className={cx("display")}>
-                  Hiển thị phim và chương trình ở <b>mọi độ tuổi</b> cho hồ sơ
-                  này.
+                  Chỉ hiển thị các video có mức xếp hạng độ tuổi từ
+                  <b>10+ trở xuống</b> cho hồ sơ này.
                 </p>
                 <button
                   className={cx("btn-settingEditAge")}
@@ -150,13 +105,13 @@ export default function ProfileMain() {
                 <h2 className={cx("title-editProfile")}>
                   Điều chỉnh tự động phát
                 </h2>
-
                 <div className={cx("marker-next")}>
                   <span
                     className={checkNext}
                     onClick={handleCheckboxChangeNext}
                   ></span>
                   <span
+                    id="markerCheckNext"
                     className={cx("content-autoPlay-next")}
                     onClick={handleCheckboxChangeNext}
                   >
@@ -164,7 +119,6 @@ export default function ProfileMain() {
                     thiết bị.
                   </span>
                 </div>
-
                 <div className={cx("marker-preview")}>
                   <span
                     className={checkPreview}
@@ -184,22 +138,25 @@ export default function ProfileMain() {
           <div className={cx("btn-editUpdate")}>
             <span
               className={cx("btn-saveEditProfile")}
-              onClick={() => changeProfile("backShowListEdit")}
+              onClick={() => changeProfile("backShowList")}
             >
               Lưu
             </span>
             <span
               className={cx("btn-cancelEditProfile")}
-              onClick={() => changeProfile("backShowListEdit")}
+              onClick={() => changeProfile("backShowList")}
             >
               Hủy
+            </span>
+            <span
+              className={cx("btn-deleteEditProfile")}
+              onClick={() => changeProfile("goToRemoveProfile")}
+            >
+              Xóa hồ sơ
             </span>
           </div>
         </div>
       </div>
-      {stateModal === 1 && (
-        <ModalProfile isOpen={stateModal} onClose={closeModal} />
-      )}
       {currentComponent}
     </>
   );

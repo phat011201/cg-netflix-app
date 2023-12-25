@@ -5,16 +5,34 @@ import {
   faChevronRight,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { AVATAR_EDIT, CLASSIC, IMG_TITLE_1 } from "./Images/constantImg";
+import {
+  AVATAR_EDIT,
+  CLASSIC,
+  IMG_TITLE_1,
+} from "../../../../assets/images/settings/constantImg";
 import Slider from "react-slick";
-import ConfirmChangeAvt from "./confirmChangeAvt";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../scss/avatarEdit.scss";
+import "../../scss/avatarEdit.scss";
+import ConfirmChangeAvt from "./confirmChangeAvt";
+import EditProfile from "../editProfile";
 
 export default function AvatarEdit() {
-  const [confirmChangeAvt, setConfirmChangeAvt] = useState(false);
-  const [slider, setSlider] = useState(null);
+  const [slider1, setSlider1] = useState(false);
+  const [slider2, setSlider2] = useState(false);
+  const [slider3, setSlider3] = useState(false);
+  const [componentProfile, setComponentProfile] = useState("");
+
+  const changeProfile = (type) => {
+    setComponentProfile(type);
+  };
+
+  let currentComponent;
+  if (componentProfile === "backEditProfile") {
+    currentComponent = <EditProfile />;
+  } else if (componentProfile === "goToConfirmAvatar") {
+    currentComponent = <ConfirmChangeAvt />;
+  }
 
   const sliderRef = useRef([]);
 
@@ -26,23 +44,39 @@ export default function AvatarEdit() {
     slidesToScroll: 4,
   };
 
-  const handleNext = (carouselIdx) => {
+  const handleNext1 = (carouselIdx) => {
     if (sliderRef.current[carouselIdx]) {
       sliderRef.current[carouselIdx].slickNext();
+
+      if (slider1 === false) {
+        setSlider1(true);
+      }
+    }
+  };
+
+  const handleNext2 = (carouselIdx) => {
+    if (sliderRef.current[carouselIdx]) {
+      sliderRef.current[carouselIdx].slickNext();
+
+      if (slider2 === false) {
+        setSlider2(true);
+      }
+    }
+  };
+
+  const handleNext3 = (carouselIdx) => {
+    if (sliderRef.current[carouselIdx]) {
+      sliderRef.current[carouselIdx].slickNext();
+
+      if (slider3 === false) {
+        setSlider3(true);
+      }
     }
   };
 
   const handlePrev = (carouselIdx) => {
     if (sliderRef.current[carouselIdx]) {
       sliderRef.current[carouselIdx].slickPrev();
-    }
-  };
-
-  const showModalConfirm = () => {
-    if (confirmChangeAvt === false) {
-      setConfirmChangeAvt(true);
-    } else {
-      setConfirmChangeAvt(false);
     }
   };
 
@@ -54,7 +88,10 @@ export default function AvatarEdit() {
           <div className="header-bg"></div>
           <div className="header-nav">
             <div className="title">
-              <div className="icon">
+              <div
+                className="icon"
+                onClick={() => changeProfile("backEditProfile")}
+              >
                 <FontAwesomeIcon icon={faArrowLeft} />
               </div>
               <div className="title-editProfileAvatar">
@@ -77,15 +114,15 @@ export default function AvatarEdit() {
                 <li className="detail-list-avatars-themed">
                   <h2>Kinh điển</h2>
                   <div className="list-slider-avatars">
-                    {slider !== null && (
+                    {slider1 ? (
                       <span
                         id="icon-left-pre"
-                        className="icon-left handle-slide "
+                        className="icon-left handle-slide"
                         onClick={() => handlePrev(0)}
                       >
                         <FontAwesomeIcon icon={faChevronLeft} />
                       </span>
-                    )}
+                    ) : null}
                     {/* slide */}
                     <div className="slider-avatarsEdit">
                       <div className="slider-img-avatars">
@@ -96,7 +133,7 @@ export default function AvatarEdit() {
                           {CLASSIC.map((data) => (
                             <div
                               className="slide-item"
-                              onClick={showModalConfirm}
+                              onClick={() => changeProfile("goToConfirmAvatar")}
                             >
                               <div className="slide-pick">
                                 <img src={data.src} alt={data.alt} />
@@ -109,7 +146,7 @@ export default function AvatarEdit() {
                     <span
                       id="icon-left-next"
                       className="icon-right handle-slide icon-next"
-                      onClick={() => handleNext(0)}
+                      onClick={() => handleNext1(0)}
                     >
                       <FontAwesomeIcon icon={faChevronRight} />
                     </span>
@@ -120,14 +157,14 @@ export default function AvatarEdit() {
                     <img src={IMG_TITLE_1.src} alt={IMG_TITLE_1.alt} />
                   </h2>
                   <div className="list-slider-avatars">
-                    {slider === 1 && (
+                    {slider2 ? (
                       <span
                         className="icon-left handle-slide"
                         onClick={() => handlePrev(1)}
                       >
                         <FontAwesomeIcon icon={faChevronLeft} />
                       </span>
-                    )}
+                    ) : null}
                     {/* slide */}
                     <div className="slider-avatarsEdit">
                       <div className="slider-img-avatars">
@@ -138,7 +175,7 @@ export default function AvatarEdit() {
                           {CLASSIC.map((data) => (
                             <div
                               className="slide-item"
-                              onClick={showModalConfirm}
+                              onClick={() => changeProfile("goToConfirmAvatar")}
                             >
                               <div className="slide-pick">
                                 <img src={data.src} alt={data.alt} />
@@ -150,7 +187,7 @@ export default function AvatarEdit() {
                     </div>
                     <span
                       className="icon-right handle-slide"
-                      onClick={() => handleNext(1)}
+                      onClick={() => handleNext2(1)}
                     >
                       <FontAwesomeIcon icon={faChevronRight} />
                     </span>
@@ -161,14 +198,14 @@ export default function AvatarEdit() {
                     <img src={IMG_TITLE_1.src} alt={IMG_TITLE_1.alt} />
                   </h2>
                   <div className="list-slider-avatars">
-                    {slider === 2 && (
+                    {slider3 ? (
                       <span
                         className="icon-left handle-slide"
                         onClick={() => handlePrev(2)}
                       >
                         <FontAwesomeIcon icon={faChevronLeft} />
                       </span>
-                    )}
+                    ) : null}
                     {/* slide */}
                     <div className="slider-avatarsEdit">
                       <div className="slider-img-avatars">
@@ -179,7 +216,7 @@ export default function AvatarEdit() {
                           {CLASSIC.map((data) => (
                             <div
                               className="slide-item"
-                              onClick={showModalConfirm}
+                              onClick={() => changeProfile("goToConfirmAvatar")}
                             >
                               <div className="slide-pick">
                                 <img src={data.src} alt={data.alt} />
@@ -191,7 +228,7 @@ export default function AvatarEdit() {
                     </div>
                     <span
                       className="icon-right handle-slide"
-                      onClick={() => handleNext(2)}
+                      onClick={() => handleNext3(2)}
                     >
                       <FontAwesomeIcon icon={faChevronRight} />
                     </span>
@@ -202,7 +239,7 @@ export default function AvatarEdit() {
           </div>
         </div>
       </div>
-      {confirmChangeAvt && <ConfirmChangeAvt />}
+      {currentComponent}
     </>
   );
 }
