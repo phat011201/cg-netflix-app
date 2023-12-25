@@ -155,7 +155,7 @@ nav {
     width: 100%;
     padding: 5px;
 
-    label {
+    .accordion-menu {
       display: flex;
       align-items: center;
       padding: 20px;
@@ -169,7 +169,7 @@ nav {
   }
 }
 
-label::after {
+.accordion-menu::after {
   content: "+";
   font-size: 30px;
   position: absolute;
@@ -188,11 +188,11 @@ input[type="radio"] {
   transition: max-height 0.5s, padding 0.5s;
 }
 
-.accordion input[type="radio"]:checked + label + .content {
+.accordion input[type="radio"]:checked + .accordion-menu + .content {
   max-height: 600px;
   padding: 30px 20px;
 }
-.accordion input[type="radio"]:checked + label::after {
+.accordion input[type="radio"]:checked + .accordion-menu::after {
   transform: rotate(135deg);
 }
 .footer-content {
@@ -334,7 +334,7 @@ input[type="radio"] {
     .accordion .content {
       font-size: 15px;
     }
-    .accordion li label {
+    .accordion-menu {
       padding: 15px;
       font-size: 16px;
     }
