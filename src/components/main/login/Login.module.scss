@@ -93,7 +93,12 @@
     text-align: center;
     margin: 20px auto;
 }
-
+.noti-err {
+    padding: 0;
+    margin-top: 3px;
+    color: red;
+    font-size: 14px;
+}
 
 .login-form-help {
     display: flex;
