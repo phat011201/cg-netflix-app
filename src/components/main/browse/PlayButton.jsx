@@ -28,7 +28,7 @@ const PlayButton = ({ movieId }) => {
         "
     >
       <PlayIcon className="w-4 md:w-7 text-black mr-1" />
-      Play
+      Phát
     </button>
   );
 };

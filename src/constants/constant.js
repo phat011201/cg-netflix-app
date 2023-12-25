@@ -2,7 +2,7 @@ import { logo } from "../assets/images/index.js";
 import profileImg from "../assets/images/default-profile.jpg";
 
 const LOGO = {
-  src: logoImg,
+  src: logo,
   alt: "logo",
 };
 
@@ -18,15 +18,7 @@ const HEADTITLE = [
   {
     title: "Phim",
     path: "/films",
-  },
-  {
-    title: "Mới & Phổ biến",
-    path: "/newandpopular",
-  },
-  {
-    title: "Duyệt tìm theo ngôn ngữ",
-    path: "/browsebylanguage",
-  },
+  }
 ];
 
 const PROFILE = {

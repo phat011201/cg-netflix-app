@@ -4,14 +4,14 @@ import styles from "../scss/restrictions.module.scss";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { logoImg } from "./Images/logoImage";
+import { logoImg } from "./Images/constantImg";
 
 export default function Restrictions() {
   const cx = classNames.bind(styles);
   const navigate = useNavigate();
 
   const handleNavigateManageProfile = () => {
-    navigate("/manage-profiles");
+    navigate("/profiles/manage");
   };
 
   const handleNavigateBrowse = () => {
@@ -24,9 +24,7 @@ export default function Restrictions() {
         <div className={cx("box-restrictions")}>
           <div className={cx("nav-restrictionProfile")}>
             <div className={cx("max-width")}>
-              <div className={cx("logo-restrictionProfile")}>
-                {logoImg}
-              </div>
+              <div className={cx("logo-restrictionProfile")}>{logoImg}</div>
               <div className={cx("avatar-restrictionProfile")}>
                 <img
                   src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUDri_Ssyw2XNjs9siC5CqPEQvcqnUvWhIabgK4_r62aJ4qXC0l9N7BwEL34r9bx1OaCMzLCfYneXdacUM8gc94Dq7ePdo8.png?r=e6e"
