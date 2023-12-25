@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { logo } from '../../../assets/images';
 import styles from './Login.module.scss'
+import { useState } from "react";
 
 const cx = classNames.bind(styles)
 
@@ -26,6 +27,39 @@ function Login() {
         {to:'/',
         title:'Thông tin doanh nghiệp'},
     ]
+     const [user, setUser] = useState({email:'',password:''})
+    const [errors, setErrors] = useState({});
+    const handleSubmitLogin = (event)=>{
+        event.preventDefault();
+
+        const validationErrors = validateForm(user);
+        setErrors(validationErrors);
+        if (Object.keys(validationErrors).length === 0) {
+        navigate('/browse')
+        }
+    };
+    const handleChaneUser = (e)=>{
+        setUser((prevUser=>({...prevUser,[e.target.name]:e.target.value}))
+            )
+    }
+    const validateForm = (data)=>{
+        let errors = {}
+        if (!data.email.trim()) {
+        errors.email = 'Email không được để trống';
+        } else if (!isValidEmail(data.email)) {
+        errors.email = 'Vui lòng nhập đúng định dạng email';
+        }
+        if (!data.password.trim()) {
+        errors.password = 'Mật khẩu không được để trống';
+        } else if (data.password.length < 6) {
+        errors.password = 'Mật khẩu phải dài hơn 6 ký tự';
+        }
+         return errors;
+    }
+    const isValidEmail = (email) => {
+            // Use a regex or any other validation logic for email format
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        };
     return ( <>
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
@@ -41,19 +75,22 @@ function Login() {
                         </h1>
                         <form className={cx('login-form')}>
                             <div className={cx('input-container')}>
-                                <input type="text" className={cx('input')}/>
+                                <input type="text" name="email" className={cx('input')} value={user.name} onChange={handleChaneUser}/>
                                 <label className={cx('label')}>
                                      Email hoặc số điện thoại
                                 </label>
                             </div>
+                            {errors.email && <p className={cx('noti-err')}>{errors.email}</p>}
+
                             <div className={cx('input-container')}>
-                                <input type="password" name="password" className={cx('input')}/>
+                                <input type="password" name="password" value={user.password} className={cx('input')} onChange={handleChaneUser}/>
                                 <label className={cx('label')}>
                                      Mật khẩu
                                 </label>
                             </div>
+                            {errors.password && <p className={cx('noti-err')}>{errors.password}</p>}
                         </form>
-                        <button className={cx('btn')} onClick={()=>navigate('/browse')}>
+                        <button className={cx('btn')} onClick={handleSubmitLogin}>
                         Đăng nhập
                         </button>
                         <div className={cx('login-form-help')}>

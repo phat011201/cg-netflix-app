@@ -1,8 +1,10 @@
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faCircleQuestion, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faCaretUp, faCircleQuestion, faFlag, faLock } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams } from "react-router-dom";
 
+import Tippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css';
 
 import {cardIcon} from '../../../../assets/images';
 import Lock from '../../../../assets/images/Lock.png';
@@ -14,16 +16,92 @@ import MOMOPAY from '../../../../assets/images/MOMOPAY.png';
 
 
 import styles from './Payment.module.scss'
+import {  useState } from "react";
 const cx = classNames.bind(styles)
 
 
-function Payment() {
+function Payment({option}) {
+    const LIST_COUNTRY = [
+        {
+            id:1,
+            number:'+45',
+            name:'Quata',
+        },
+        {
+            id:2,
+            number:'+46',
+            name:'Quata jhdsfhjn',
+        },
+        {
+            id:3,
+            number:'+47',
+            name:'Quata fdgdg',
+        },
+        {
+            id:4,
+            number:'+48',
+            name:'Quata dfgd',
+        },
+        {
+            id:5,
+            number:'+49',
+            name:'Quata ererg',
+        },
+        {
+            id:1,
+            number:'+45',
+            name:'Quata',
+        },
+        {
+            id:2,
+            number:'+46',
+            name:'Quata jhdsfhjn',
+        },
+        {
+            id:3,
+            number:'+47',
+            name:'Quata fdgdg',
+        },
+        {
+            id:4,
+            number:'+48',
+            name:'Quata dfgd',
+        },
+        {
+            id:5,
+            number:'+49',
+            name:'Quata ererg',
+        },
+    ]
+    const servicePackOption =(option)=>{
+        if(option==='plandChoice0'){
+            return {name:'Di động', price:'70.000'}
+        }
+        else if(option==='plandChoice1'){
+            return {name:'Cơ bản', price:'108.000'}
+        }
+        else if(option==='plandChoice2'){
+            return {name:'Tiêu chuẩn', price:'220.000'}
+        }
+        else if(option==='plandChoice3'){
+            return {name:'Cao cấp', price:'260.000'}
+        }
+    }
+    const servicePack = servicePackOption(option)
+    if(option==='plandChoice0'){
+
+    }
 
 
+    const [country, setCountry] = useState({
+            id:1,
+            number:'+45',
+            name:'Quata',
+    })
+    
+    const [isShowToolTips, setIsShowToolTips] = useState(false)
     const navigate =useNavigate()
     const { step } = useParams()
-    console.log({step});
-
     return (
         <>
         {(step === 'paymentPicker') && <div className={cx('wrapper')}>
@@ -128,10 +206,10 @@ function Payment() {
                 </div>
                 <div className={cx('order-infor')}>
                     <div className={cx('order-infor-item')}>
-                        <p className={cx('option-price')}>260.000 đ/tháng</p>
-                        <p className={cx('option-name')}>Cao cấp</p>
+                        <p className={cx('option-price')}>{servicePack.price} đ/tháng</p>
+                        <p className={cx('option-name')}>{servicePack.name}</p>
                     </div>
-                    <div className={cx('change-option-button')}>
+                    <div className={cx('change-option-button')} onClick={()=>navigate('/register/planform')}>
                         Thay đổi
                     </div>
                 </div>
@@ -172,25 +250,52 @@ function Payment() {
                 </p>  
                 <div className={cx('form-field-container')}>
                     <div className={cx('select-country')}>
-                        <select name='car'>
-                            <option value={'jhdhjs'}>
-                                sffew
-                            </option>
-                            <option value={'jhdhjs'}>
-                                sffew
-                            </option>
-                            <option value={'jhdhjs'}>
-                                sffew
-                            </option>
-                            <option value={'jhdhjs'}>
-                                sffew
-                            </option>
-                        </select>
+
+                            <div className={cx('select-country')}>
+                                <div className={cx('country-select-container')}>
+                                    <Tippy 
+                                    visible={isShowToolTips}
+                                    placement="bottom-start"
+                                    interactive={true}
+                                    render={attrs => (
+                                        <div className={cx('popup-select-country')} tabIndex="-1" {...attrs}>
+                                            <ul className={cx('list-country')}>
+                                                {LIST_COUNTRY.map((item,index)=><li  key={index} className={cx('item-country')} onClick={()=>{setCountry(item);setIsShowToolTips(!isShowToolTips)}}>
+                                                    <span className={cx('country-select-option-flag')}>
+                                                        <FontAwesomeIcon icon={faFlag} />
+                                                    </span>
+                                                    <span className={cx('country-select-option-name')}>
+                                                        {item.name}
+                                                    </span>
+                                                    <span className={cx('country-select-option-code')}>
+                                                        {item.number}
+                                                    </span>
+                                                </li>)}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    >
+                                        <div className={cx('country-select-container')} onClick={()=>setIsShowToolTips(!isShowToolTips)}>
+                                            <span className={cx('country-select-flag')}>
+                                                <FontAwesomeIcon icon={faFlag} />
+                                            </span>
+                                            <span className={cx('country-select-code')}>
+                                                {country.number}
+                                            </span>
+                                            <span>
+                                                <FontAwesomeIcon icon={faCaretUp} />
+                                            </span>
+                                        </div>
+                                    </Tippy>
+                                </div>
+                                <div className={cx('phone-number')}>
+                                    <input className={cx('input-phone-number')}/>
+                                    <label className={cx('input-phone-label')}>Số điện thoại di động</label>
+                                </div>
+                            </div>
+                        
                     </div>
-                    <div className={cx('nF-form-space')}>
-                        <input className={cx('input-form')}/>
-                        <label className={cx('input-label')}>Họ</label>
-                    </div>
+                    
                 </div>
 
 
@@ -198,8 +303,8 @@ function Payment() {
 
                 <div className={cx('order-infor')}>
                     <div className={cx('order-infor-item')}>
-                        <p className={cx('option-price')}>260.000 đ/tháng</p>
-                        <p className={cx('option-name')}>Cao cấp</p>
+                        <p className={cx('option-price')}>{servicePack.price} đ/tháng</p>
+                        <p className={cx('option-name')}>{servicePack.name}</p>
                     </div>
                     <div className={cx('change-option-button')}>
                         Thay đổi
@@ -217,7 +322,7 @@ function Payment() {
                         Tôi đồng ý
                     </div>
                 </div>
-                <button className={cx('btn')}>
+                <button className={cx('btn')} >
                     Kích hoạt tư cách thành viên
                 </button>
             </div>}
