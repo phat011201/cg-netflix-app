@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { AVATAR, avatarRank, iconNickname } from "./Images/constantImg";
-import "../scss/instruct.scss";
+import {
+  AVATAR,
+  avatarRank,
+  iconNickname,
+} from "../../../assets/images/settings/constantImg";
+import "../scss/modalProfile.scss";
 
-export default function InstructEdit() {
+export default function ModalProfile({ isOpen, onClose }) {
   const [isHover, setIsHover] = useState();
   const [currentBox, setCurrentBox] = useState(1);
 
@@ -16,27 +20,17 @@ export default function InstructEdit() {
     setCurrentBox(currentBox - 1);
   };
 
-  const handleClose = () => {
-    if (currentBox === 1) {
-      setCurrentBox(false);
-    } else if (currentBox === 2) {
-      setCurrentBox(false);
-    } else if (currentBox === 3) {
-      setCurrentBox(false);
-    }
-  };
-
   return (
     <>
       {currentBox === 1 && (
-        <div className="box-mainInstruct">
+        <div className={`box-mainInstruct ${isOpen ? "open" : "closed"}`}>
           <div className="align-self">
             <div className="box-instruct">
               <div className="close">
                 <button
                   onMouseOver={() => setIsHover(true)}
                   onMouseOut={() => setIsHover(false)}
-                  onClick={handleClose}
+                  onClick={onClose}
                 >
                   <FontAwesomeIcon icon={faXmark} />
                   {isHover && <div className="des-close">đóng</div>}
@@ -80,7 +74,7 @@ export default function InstructEdit() {
                 <button
                   onMouseOver={() => setIsHover(true)}
                   onMouseOut={() => setIsHover(false)}
-                  onClick={handleClose}
+                  onClick={onClose}
                 >
                   <FontAwesomeIcon icon={faXmark} />
                   {isHover && <div className="des-close">đóng</div>}
@@ -131,7 +125,7 @@ export default function InstructEdit() {
                 <button
                   onMouseOver={() => setIsHover(true)}
                   onMouseOut={() => setIsHover(false)}
-                  onClick={handleClose}
+                  onClick={onClose}
                 >
                   <FontAwesomeIcon icon={faXmark} />
                   {isHover && <div className="des-close">đóng</div>}
@@ -166,7 +160,7 @@ export default function InstructEdit() {
                     <span className="two"></span>
                     <span className="three"></span>
                   </div>
-                  <button onClick={handleContinue}>Hoàn tất</button>
+                  <button onClick={onClose}>Hoàn tất</button>
                 </div>
               </div>
             </div>

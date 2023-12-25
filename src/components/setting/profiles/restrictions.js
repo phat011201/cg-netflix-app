@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import classNames from "classnames/bind";
 import styles from "../scss/restrictions.module.scss";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
-import { logoImg } from "./Images/constantImg";
+import {
+  AVATAR_PROFILE_RESTRICTION,
+  AVATAR_RESTRICTION,
+  logoImg,
+} from "../../../assets/images/settings/constantImg";
 
 export default function Restrictions() {
   const cx = classNames.bind(styles);
@@ -27,8 +31,8 @@ export default function Restrictions() {
               <div className={cx("logo-restrictionProfile")}>{logoImg}</div>
               <div className={cx("avatar-restrictionProfile")}>
                 <img
-                  src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUDri_Ssyw2XNjs9siC5CqPEQvcqnUvWhIabgK4_r62aJ4qXC0l9N7BwEL34r9bx1OaCMzLCfYneXdacUM8gc94Dq7ePdo8.png?r=e6e"
-                  alt="Avatar Profile"
+                  src={AVATAR_RESTRICTION}
+                  alt="Avatar Profile Restriction"
                 />
                 <FontAwesomeIcon icon={faCaretDown} />
                 <div className={cx("list-profileRestriction")}>
@@ -39,7 +43,7 @@ export default function Restrictions() {
                         className={cx("listItem-profileUser")}
                       >
                         <img
-                          src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTMiZwRhh5FJfP3aZxAPx3Um3gL-gt38U0Txelj-JIiLvU-9M9i4rjnFRNbpUgCFkZxk_60QwarCVVgnUbHMyp66r7h6dWE.png?r=a82"
+                          src={AVATAR_PROFILE_RESTRICTION}
                           alt="Avatar profile"
                         />
                         <span>Username</span>
@@ -79,8 +83,8 @@ export default function Restrictions() {
                 </div>
                 <div className={cx("avatar")}>
                   <img
-                    src="https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUDri_Ssyw2XNjs9siC5CqPEQvcqnUvWhIabgK4_r62aJ4qXC0l9N7BwEL34r9bx1OaCMzLCfYneXdacUM8gc94Dq7ePdo8.png?r=e6e"
-                    alt="Avatar Profile"
+                    src={AVATAR_RESTRICTION}
+                    alt="Avatar Profile Restriction"
                   />
                 </div>
               </div>

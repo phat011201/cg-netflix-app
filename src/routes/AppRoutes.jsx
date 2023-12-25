@@ -10,8 +10,7 @@ import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
 import Watch from "../components/main/watch/Watch";
-import ChooseProfile from "../components/setting/profiles/chooseProfile";
-import ProfileMain from "../components/setting/profiles/profileMain";
+import ContactUs from "../components/contactus/ContactUs";
 
 const AppRoutes = () => {
   return (
@@ -27,14 +26,14 @@ const AppRoutes = () => {
       <Route path="/profiles/manage" element={<Manage />} />
 
       <Route path="/settings/restrictions" element={<Restrictions />} />
-      <Route path="/browse/chooseProfile" element={<ChooseProfile />} />
-      <Route path="/profiles/manage/profile-main" element={<ProfileMain />} />
 
       <Route path="/register/:step?" element={<Register />} />
 
       <Route path="/login" element={<Login />} />
 
       <Route path="/support" element={<div>Support</div>} />
+      
+      <Route path="/contactus" element={<div><ContactUs /></div>} />
     </Routes>
   );
 };

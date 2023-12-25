@@ -210,6 +210,12 @@
         transform: translateX(-50%);
     }
 }
+.plandGrid-selected-label.plandGrid-selector-label {
+    opacity: 1;
+    &::after {
+        border-width: 10px 10px 0;
+    }
+}
 .plandGrid-feature-table {
     display: flex;
     flex-direction: column;
@@ -238,6 +244,9 @@
     font-weight: 500;
     text-align: left;
     width: 35%;
+}
+.selected.plandGrid-featureCell, .plandGrid-cell.selected {
+    color: #e50914;
 }
 .plandGrid-cell {
     display: block;

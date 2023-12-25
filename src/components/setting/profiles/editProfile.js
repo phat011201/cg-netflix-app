@@ -6,17 +6,17 @@ import {
   faPen,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
-import "../scss/removeProfile.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { CHOOSE_PROFILE_M } from "../../../assets/images/settings/constantImg";
+import { CHOOSE_PROFILE_U } from "../../../assets/images/settings/constantImg";
 import ShowListEdit from "./showListEdit";
+import RemoveProfile from "./removeProfile";
 import AvatarEdit from "./avatar/avatarEdit";
 import ModalProfile from "./modalProfile";
 import Header from "./headerProfile";
 
 const cx = classNames.bind(styles);
 
-export default function ProfileMain() {
+export default function EditProfile() {
   const [isCheckedNext, setIsCheckedNext] = useState(true);
   const [isCheckedPreview, setIsCheckedPreview] = useState(true);
   const [componentProfile, setComponentProfile] = useState("");
@@ -30,6 +30,8 @@ export default function ProfileMain() {
   let currentComponent;
   if (componentProfile === "backShowListEdit") {
     currentComponent = <ShowListEdit />;
+  } else if (componentProfile === "goToRemoveProfile") {
+    currentComponent = <RemoveProfile />;
   } else if (componentProfile === "goToAvatarEdit") {
     currentComponent = <AvatarEdit />;
   }
@@ -42,7 +44,7 @@ export default function ProfileMain() {
     setStateModal(null);
   };
 
-  // Xử lý checkBox
+  // handle checkBox
   const checkNext = cx("marker-checkAuto-next", { checkedNext: isCheckedNext });
   const checkPreview = cx("marker-checkAuto-preview", {
     checkedPreview: isCheckedPreview,
@@ -58,7 +60,6 @@ export default function ProfileMain() {
 
   return (
     <>
-      {/* Profile Edit main */}
       <div className={cx("box-mainEditProfile")}>
         <div className={cx("box-actionEditProfile")}>
           <Header />
@@ -67,8 +68,8 @@ export default function ProfileMain() {
             <div className={cx("img-editProfile")}>
               <img
                 className={cx("position-imgEdit")}
-                src={CHOOSE_PROFILE_M}
-                alt="Img Profile Main"
+                src={CHOOSE_PROFILE_U}
+                alt="Avatar Edit Profile"
               />
               <Link onClick={() => changeProfile("goToAvatarEdit")}>
                 <FontAwesomeIcon
@@ -193,6 +194,12 @@ export default function ProfileMain() {
               onClick={() => changeProfile("backShowListEdit")}
             >
               Hủy
+            </span>
+            <span
+              className={cx("btn-deleteEditProfile")}
+              onClick={() => changeProfile("goToRemoveProfile")}
+            >
+              Xóa hồ sơ
             </span>
           </div>
         </div>

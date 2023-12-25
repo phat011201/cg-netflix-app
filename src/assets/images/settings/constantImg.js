@@ -1,20 +1,20 @@
-import avatarInstruct from "../Images/avatar-instruct.jpg";
-import avatarEdit from "../Images/avatar-edit.jpg";
-import avatarChange from "../Images/avatar-instruct.jpg";
-import avatarCurrent from "../Images/avatar-edit.jpg";
-import imgTitle1 from "../Images/ImgTitle/img-title-1.jpg";
-import avatarClassic1 from "../Images/classic/classic-1.jpg";
-import avatarClassic2 from "../Images/classic/classic-2.jpg";
-import avatarClassic3 from "../Images/classic/classic-3.jpg";
-import avatarClassic4 from "../Images/classic/classic-4.jpg";
-import avatarClassic5 from "../Images/classic/classic-5.jpg";
-import avatarClassic6 from "../Images/classic/classic-6.jpg";
-import avatarClassic7 from "../Images/classic/classic-6.jpg";
-import avatarClassic8 from "../Images/classic/classic-6.jpg";
-import avatarClassic9 from "../Images/classic/classic-6.jpg";
-import avatarClassic10 from "../Images/classic/classic-5.jpg";
-import avatarClassic11 from "../Images/classic/classic-5.jpg";
-import avatarClassic12 from "../Images/classic/classic-5.jpg";
+import avatarInstruct from "../../images/settings/avatar-instruct.jpg";
+import avatarEdit from "../../images/settings/avatar-edit.jpg";
+import avatarChange from "../../images/settings/avatar-instruct.jpg";
+import avatarCurrent from "../../images/settings/avatar-edit.jpg";
+import imgTitle1 from "../../images/settings/ImgTitle/img-title-1.jpg";
+import avatarClassic1 from "../../images/settings/classic/classic-1.jpg";
+import avatarClassic2 from "../../images/settings/classic/classic-2.jpg";
+import avatarClassic3 from "../../images/settings/classic/classic-3.jpg";
+import avatarClassic4 from "../../images/settings/classic/classic-4.jpg";
+import avatarClassic5 from "../../images/settings/classic/classic-5.jpg";
+import avatarClassic6 from "../../images/settings/classic/classic-6.jpg";
+import avatarClassic7 from "../../images/settings/classic/classic-6.jpg";
+import avatarClassic8 from "../../images/settings/classic/classic-6.jpg";
+import avatarClassic9 from "../../images/settings/classic/classic-6.jpg";
+import avatarClassic10 from "../../images/settings/classic/classic-5.jpg";
+import avatarClassic11 from "../../images/settings/classic/classic-5.jpg";
+import avatarClassic12 from "../../images/settings/classic/classic-5.jpg";
 
 export const logoImg = (
   <svg
@@ -229,4 +229,43 @@ const CLASSIC = [
   },
 ];
 
-export { AVATAR, AVATAR_EDIT, CLASSIC, IMG_TITLE_1, CURRENT_AVT, CHANGE_AVT };
+const IMG_EDIT_PR =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUuLGcQufVfEdvvUAHLQsrM44kkQQ-ySZbbd8FLSC_AX52dznaYP1pR4Y4Pdi3LuX1rFFbTIt1sBxNYBQ3ZSz59Pg3fVgsLLU6H5.png?r=a82";
+
+const IMG_ADD_NEW =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABZfhNS88u5ao0M3F5X4HRBGCFsqdb2nncDt32YQHoM-1BeLJq93H30hWyleqclSwt1jNGm6l0tkeefKiiCOLLL5gNjpSjS_Xlaij.png?r=bd7";
+
+const CHOOSE_PROFILE_M =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUuLGcQufVfEdvvUAHLQsrM44kkQQ-ySZbbd8FLSC_AX52dznaYP1pR4Y4Pdi3LuX1rFFbTIt1sBxNYBQ3ZSz59Pg3fVgsLLU6H5.png?r=a82";
+
+const CHOOSE_PROFILE_U =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABV7uLegi1BOvEneuUG7DavpEkdlHLuUEXmby2jgEA7n8V5LgcFu1o-NlMgJFznEX3Qt8-q7_t8ejt22-fz9LP_lJM6OKNQRpOA.png?r=201";
+
+const CHOOSE_PROFILE_C =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABYmm-ATwKte0yDKZrjQctLqfq-DKbmHaG-b0kw-WCBljB4_seGydhXDwo57rw-bHXCp6_laFFHDZp691qpVaX9HrdhQ7o3kxUb6W.png?r=d73";
+
+const IMG_REMOVE =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABfjwXqIYd3kCEU6KWsiHSHvkft8VhZg0yyD50a_pHXku4dz9VgxWwfA2ontwogStpj1NE9NJMt7sCpSKFEY2zmgqqQfcw1FMWwB9.png?r=229";
+
+const AVATAR_RESTRICTION =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABUDri_Ssyw2XNjs9siC5CqPEQvcqnUvWhIabgK4_r62aJ4qXC0l9N7BwEL34r9bx1OaCMzLCfYneXdacUM8gc94Dq7ePdo8.png?r=e6e";
+
+const AVATAR_PROFILE_RESTRICTION =
+  "https://occ-0-58-395.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTMiZwRhh5FJfP3aZxAPx3Um3gL-gt38U0Txelj-JIiLvU-9M9i4rjnFRNbpUgCFkZxk_60QwarCVVgnUbHMyp66r7h6dWE.png?r=a82";
+
+export {
+  AVATAR,
+  AVATAR_EDIT,
+  CLASSIC,
+  IMG_TITLE_1,
+  CURRENT_AVT,
+  CHANGE_AVT,
+  IMG_EDIT_PR,
+  IMG_ADD_NEW,
+  CHOOSE_PROFILE_M,
+  CHOOSE_PROFILE_U,
+  CHOOSE_PROFILE_C,
+  IMG_REMOVE,
+  AVATAR_RESTRICTION,
+  AVATAR_PROFILE_RESTRICTION,
+};
