@@ -10,9 +10,17 @@ const cx = classNames.bind(styles);
 export default function AddNewProfile() {
   const [isCheckedChildren, setIsCheckedChildren] = useState(false);
   const [showListEdit, setShowListEdit] = useState(true);
+  const [inputValue, setInputValue] = useState("");
+  const [isValid, setIsValid] = useState(false);
 
   const backToShowListEdit = () => {
     setShowListEdit(!showListEdit);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    setIsValid(value.trim() !== "");
   };
 
   // handle checkBox
@@ -38,7 +46,12 @@ export default function AddNewProfile() {
                 <img src={IMG_ADD_NEW} alt="Img Add New Profile" />
               </div>
               <div className={cx("profile-inputName")}>
-                <input type="text" placeholder="Tên" />
+                <input
+                  type="text"
+                  placeholder="Tên"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                />
               </div>
               <div className={cx("profile-check")}>
                 <input type="checkbox" id="profile-addKids" />
@@ -61,6 +74,11 @@ export default function AddNewProfile() {
             <div className={cx("btn-addProfile")}>
               <span
                 className={cx("btn-nextAddProfile")}
+                style={{
+                  background: isValid ? "#c00" : "",
+                  color: isValid ? "#fff" : "",
+                  border: isValid ? "1px solid #c00" : "",
+                }}
                 onClick={backToShowListEdit}
               >
                 Tiếp tục

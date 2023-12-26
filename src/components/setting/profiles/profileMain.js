@@ -21,6 +21,13 @@ export default function ProfileMain() {
   const [isCheckedPreview, setIsCheckedPreview] = useState(true);
   const [componentProfile, setComponentProfile] = useState("");
   const [stateModal, setStateModal] = useState(null);
+  const [inputValue, setInputValue] = useState("");
+  const [isValid, setIsValid] = useState(true);
+  const [inputValueNickname, setInputValueNickname] = useState("");
+  const [isValidNickname, setIsValidNickname] = useState(true);
+  const [isCount, setIsCount] = useState(false);
+  const [charCount, setCharCount] = useState(0);
+  const maxChars = 16;
   const navigate = useNavigate();
 
   const changeProfile = (type) => {
@@ -40,6 +47,26 @@ export default function ProfileMain() {
 
   const closeModal = () => {
     setStateModal(null);
+  };
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    setIsValid(value.trim() !== "");
+  };
+
+  const handleInputChangeNickname = (e) => {
+    const value = e.target.value;
+
+    if (value.length <= maxChars) {
+      setInputValueNickname(value);
+      setIsValidNickname(value.trim() !== "");
+      setCharCount(value.length);
+    }
+  };
+
+  const handleClickCount = () => {
+    setIsCount(true);
   };
 
   // Xử lý checkBox
@@ -80,11 +107,18 @@ export default function ProfileMain() {
             <div className={cx("profile-editParent")}>
               <div className={cx("input-editProfile")}>
                 <input
-                  className={cx("name-editProfile", "checkInput-editProfile")}
+                  className={cx("name-editProfile")}
                   type="text"
                   placeholder="Tên"
+                  value={inputValue}
+                  style={{ borderColor: isValid ? "" : "red" }}
+                  onChange={handleInputChange}
                 />
-                <p className={cx("checkName-editProfile")}>Vui lòng nhập tên</p>
+                {!isValid && (
+                  <p className={cx("checkName-editProfile")}>
+                    Vui lòng nhập tên
+                  </p>
+                )}
               </div>
 
               <div className={cx("dropdown-editProfile")}>
@@ -112,21 +146,29 @@ export default function ProfileMain() {
                 </button>
                 <div className={cx("createNickName-editProfile")}>
                   <input
-                    className={cx(
-                      "createNickNameInput",
-                      "checkInput-editProfile"
-                    )}
+                    className={cx("createNickNameInput")}
                     type="text"
                     placeholder="Tạo biệt hiệu trong trò chơi"
+                    value={inputValueNickname}
+                    style={{ borderColor: isValidNickname ? "" : "red" }}
+                    onChange={handleInputChangeNickname}
+                    onClick={handleClickCount}
                   />
                   <div className={cx("checkCreateNickName")}>
-                    <p className={cx("checkTool")}>
-                      <FontAwesomeIcon icon={faTriangleExclamation} />
-                      <span className={cx("warning-icon")}>
-                        Phải dài hơn 2 ký tự
-                      </span>
+                    {!isValidNickname && (
+                      <p className={cx("checkTool")}>
+                        <FontAwesomeIcon icon={faTriangleExclamation} />
+                        <span className={cx("warning-icon")}>
+                          Phải dài hơn 2 ký tự
+                        </span>
+                      </p>
+                    )}
+                    <p
+                      className={cx("checkCharacters")}
+                      style={{ opacity: isCount ? "1" : "0" }}
+                    >
+                      {charCount}/{maxChars}
                     </p>
-                    <p className={cx("checkCharacters")}>0/16</p>
                   </div>
                 </div>
               </div>
