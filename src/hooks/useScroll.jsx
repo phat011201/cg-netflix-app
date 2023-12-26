@@ -14,7 +14,6 @@ const useScroll = (offset) => {
     };
   }, [offset]);
 
-  console.log(window.scrollY);
   return scrollPosition >= offset;
 };
 

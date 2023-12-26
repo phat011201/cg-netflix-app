@@ -8,9 +8,9 @@
 
 ### 3. Member:
 
-- [**`Trang`**]() (**_`Member`_**)
-- [**`Minh Tuan`**]() (**_`Member`_**)
-- [**`Duc`**]() (**_`Member`_**)
+- [**`Trang`**](https://github.com/thuytrangtran0304) (**_`Member`_**)
+- [**`Minh Tuan`**](https://github.com/TuanMinhTran) (**_`Member`_**)
+- [**`Duc`**](https://github.com/HoangDuc56199) (**_`Member`_**)
 
 ### 4. Mangement:
 
@@ -28,7 +28,7 @@
 
 - ReactJS
 - Tailwindcss
-- Redux toolkit
+- Scss
 - Hook
 - Firebase
 - Styled component
