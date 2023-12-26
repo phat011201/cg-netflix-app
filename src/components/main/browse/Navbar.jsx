@@ -20,6 +20,7 @@ import useScroll from "../../../hooks/useScroll";
 const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const showBackground = useScroll(TOP_OFFSET);
 
@@ -38,9 +39,7 @@ const Navbar = () => {
             showBackground ? "bg-zinc-900 bg-opacity-90" : ""
           }`}
         >
-          {
-            LOGO.src
-          }
+          {LOGO.src}
           <div className="flex-row ml-8 gap-7 hidden lg:flex">
             {HEADTITLE.map((item, index) => {
               return (
@@ -61,9 +60,23 @@ const Navbar = () => {
             <MobileMenu visible={showMobileMenu} />
           </div>
           <div className="flex flex-row ml-auto gap-7 items-center">
-            <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-              <MagnifyingGlassIcon className="w-6" />
-            </div>
+            {isSearchOpen === false ? (
+              <div
+                onClick={() => setIsSearchOpen((prev) => !prev)}
+                className="text-gray-200 hover:text-gray-300 cursor-pointer transition"
+              >
+                <MagnifyingGlassIcon className="w-6" />
+              </div>
+            ) : (
+              <div className="border border-white flex gap-2 bg-[black]">
+                <MagnifyingGlassIcon className="w-7 text-white ps-1" />
+                <input
+                  type="text"
+                  placeholder="Phim, diễn viên, thể loại..."
+                  className="p-2 bg-[#00000083] outline-none text-white"
+                />
+              </div>
+            )}
             <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
               <BellIcon className="w-6" />
             </div>
