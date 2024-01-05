@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import styles from "../scss/manage.module.scss";
+import styles from "../../scss/manage.module.scss";
 import {
   faPen,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
-import "../scss/removeProfile.scss";
+import "../../scss/removeProfile.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { CHOOSE_PROFILE_M } from "../../../assets/images/settings/constantImg";
+import { CHOOSE_PROFILE_M } from "../../../../assets/images/settings/constantImg";
 import ShowListEdit from "./showListEdit";
-import AvatarEdit from "./avatar/avatarEdit";
+import AvatarEdit from "../avatar/avatarEdit";
 import ModalProfile from "./modalProfile";
-import Header from "./headerProfile";
+import Header from "../headerProfile";
 
 const cx = classNames.bind(styles);
 
@@ -21,10 +21,18 @@ export default function ProfileMain() {
   const [isCheckedPreview, setIsCheckedPreview] = useState(true);
   const [componentProfile, setComponentProfile] = useState("");
   const [stateModal, setStateModal] = useState(null);
+
   const [inputValue, setInputValue] = useState("");
   const [isValid, setIsValid] = useState(true);
+
   const [inputValueNickname, setInputValueNickname] = useState("");
   const [isValidNickname, setIsValidNickname] = useState(true);
+  const [isMinLengthReached, setIsMinLengthReached] = useState(false);
+  const [inputBorderColor, setInputBorderColor] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [messageColor, setMessageColor] = useState("");
+  const [hasError, setHasError] = useState(false);
+
   const [isCount, setIsCount] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const maxChars = 16;
@@ -58,10 +66,44 @@ export default function ProfileMain() {
   const handleInputChangeNickname = (e) => {
     const value = e.target.value;
 
-    if (value.length <= maxChars) {
-      setInputValueNickname(value);
-      setIsValidNickname(value.trim() !== "");
-      setCharCount(value.length);
+    setInputValueNickname(value);
+    setIsValidNickname(value.trim() !== "");
+    setCharCount(value.length);
+
+    if (value.length >= 2) {
+      setIsValidNickname(false);
+      setIsMinLengthReached(true);
+      handleCheckAvailability(value);
+    } else {
+      setIsMinLengthReached(false);
+      setIsValidNickname(false);
+      setInputBorderColor("#ea3841");
+      setMessageColor("#ea3841");
+      setHasError(true);
+      setErrorMessage("Phải dài hơn 2 ký tự");
+    }
+
+    if (value.length > maxChars) {
+      setInputBorderColor("#ea3841");
+      setMessageColor("#ea3841");
+      setHasError(true);
+      setErrorMessage("Phải ngắn hơn 16 ký tự");
+    }
+  };
+
+  const handleCheckAvailability = (updatedValue) => {
+    if (isMinLengthReached) {
+      if (updatedValue === "username1") {
+        setInputBorderColor("#ea3841");
+        setMessageColor("#ea3841");
+        setHasError(true);
+        setErrorMessage("Không khả dụng");
+      } else {
+        setInputBorderColor("#41b957");
+        setMessageColor("#41b957");
+        setHasError(false);
+        setErrorMessage("Khả dụng");
+      }
     }
   };
 
@@ -69,7 +111,7 @@ export default function ProfileMain() {
     setIsCount(true);
   };
 
-  // Xử lý checkBox
+  // Handle checkBox
   const checkNext = cx("marker-checkAuto-next", { checkedNext: isCheckedNext });
   const checkPreview = cx("marker-checkAuto-preview", {
     checkedPreview: isCheckedPreview,
@@ -150,16 +192,23 @@ export default function ProfileMain() {
                     type="text"
                     placeholder="Tạo biệt hiệu trong trò chơi"
                     value={inputValueNickname}
-                    style={{ borderColor: isValidNickname ? "" : "red" }}
+                    style={{ borderColor: inputBorderColor }}
                     onChange={handleInputChangeNickname}
                     onClick={handleClickCount}
                   />
                   <div className={cx("checkCreateNickName")}>
                     {!isValidNickname && (
-                      <p className={cx("checkTool")}>
-                        <FontAwesomeIcon icon={faTriangleExclamation} />
+                      <p
+                        className={cx("checkTool")}
+                        style={{
+                          color: messageColor,
+                        }}
+                      >
+                        {hasError && (
+                          <FontAwesomeIcon icon={faTriangleExclamation} />
+                        )}
                         <span className={cx("warning-icon")}>
-                          Phải dài hơn 2 ký tự
+                          {errorMessage}
                         </span>
                       </p>
                     )}

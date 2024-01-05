@@ -8,7 +8,7 @@ import Register from "../components/main/register/Register";
 import Browse from "../components/main/browse/Browse";
 import Introduction from "../components/introduction/Introduction";
 import Manage from "../components/setting/profiles/manage";
-import Restrictions from "../components/setting/profiles/restrictions";
+import Restrictions from "../components/setting/profiles/restricion/restrictions";
 import Watch from "../components/main/watch/Watch";
 import ContactUs from "../components/contactus/ContactUs";
 
@@ -32,8 +32,15 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
 
       <Route path="/support" element={<div>Support</div>} />
-      
-      <Route path="/contactus" element={<div><ContactUs /></div>} />
+
+      <Route
+        path="/contactus"
+        element={
+          <div>
+            <ContactUs />
+          </div>
+        }
+      />
     </Routes>
   );
 };
