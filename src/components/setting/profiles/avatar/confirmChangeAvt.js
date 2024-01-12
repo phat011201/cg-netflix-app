@@ -7,7 +7,7 @@ import {
   CURRENT_AVT,
 } from "../../../../assets/images/settings/constantImg";
 import AvatarEdit from "./avatarEdit";
-import EditProfile from "../editProfile";
+import EditProfile from "../profilesManage/editProfile";
 
 export default function ConfirmChangeAvt() {
   const [componentProfile, setComponentProfile] = useState("");

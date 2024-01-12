@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../scss/removeProfile.scss";
+import "../../scss/removeProfile.scss";
 import EditProfile from "./editProfile";
 import ShowListEdit from "./showListEdit";
-import { IMG_REMOVE } from "../../../assets/images/settings/constantImg";
+import { IMG_REMOVE } from "../../../../assets/images/settings/constantImg";
 
 export default function RemoveProfile() {
   const [componentProfile, setComponentProfile] = useState("");
