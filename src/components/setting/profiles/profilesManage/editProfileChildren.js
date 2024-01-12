@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import styles from "../scss/manage.module.scss";
+import styles from "../../scss/manage.module.scss";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
-import "../scss/removeProfile.scss";
+import "../../scss/removeProfile.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { CHOOSE_PROFILE_C } from "../../../assets/images/settings/constantImg";
+import { CHOOSE_PROFILE_C } from "../../../../assets/images/settings/constantImg";
 import ShowListEdit from "./showListEdit";
 import RemoveProfile from "./removeProfile";
-import AvatarEdit from "./avatar/avatarEdit";
-import Header from "./headerProfile";
+import AvatarEdit from "../avatar/avatarEdit";
+import Header from "../headerProfile";
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +17,8 @@ export default function EditProfileChildren() {
   const [isCheckedNext, setIsCheckedNext] = useState(true);
   const [isCheckedPreview, setIsCheckedPreview] = useState(true);
   const [componentProfile, setComponentProfile] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [isValid, setIsValid] = useState(true);
   const navigate = useNavigate();
 
   const changeProfile = (type) => {
@@ -31,6 +33,12 @@ export default function EditProfileChildren() {
   } else if (componentProfile === "goToAvatarEdit") {
     currentComponent = <AvatarEdit />;
   }
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+    setIsValid(value.trim() !== "");
+  };
 
   // handle checkBox
   const checkNext = cx("marker-checkAuto-next", { checkedNext: isCheckedNext });
@@ -73,8 +81,15 @@ export default function EditProfileChildren() {
                   className={cx("name-editProfile", "checkInput-editProfile")}
                   type="text"
                   placeholder="Tên"
+                  value={inputValue}
+                  style={{ borderColor: isValid ? "" : "red" }}
+                  onChange={handleInputChange}
                 />
-                <p className={cx("checkName-editProfile")}>Vui lòng nhập tên</p>
+                {!isValid && (
+                  <p className={cx("checkName-editProfile")}>
+                    Vui lòng nhập tên
+                  </p>
+                )}
               </div>
 
               <div className={cx("dropdown-editProfile")}>
