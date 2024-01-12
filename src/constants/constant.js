@@ -13,11 +13,15 @@ const HEADTITLE = [
   },
   {
     title: "Phim T.hình",
-    path: "/tvshows",
+    path: "/browse/tvshows",
   },
   {
     title: "Phim",
-    path: "/films",
+    path: "/browse/films",
+  },
+  {
+    title: "Duyệt theo ngôn ngữ",
+    path: "/browse/original-audio",
   },
 ];
 
