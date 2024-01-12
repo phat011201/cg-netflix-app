@@ -155,7 +155,6 @@
 
                 .selected {
                   position: relative;
-
                   &::after {
                     content: "";
                     position: absolute;
@@ -168,16 +167,6 @@
                     z-index: 2;
                   }
                 }
-                // .first {
-                //   position: absolute;
-                //   left: -80px;
-                //   top: -36px;
-                //   height: 4px;
-                //   width: 180%;
-                //   background-color: #5fa53f;
-                //   margin: 0px 20px;
-                //   z-index: 2;
-                // }
                 .label-selected {
                   background-color: #5fa53f;
                   color: #fff;

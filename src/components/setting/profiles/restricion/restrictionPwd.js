@@ -22,22 +22,22 @@ export default function Restrictions() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (!password) {
-    //   setErrorInput("#b00500");
-    //   setErrorMessage("Bạn cần nhập mật khẩu.");
-    //   return;
-    // }
+    if (!password) {
+      setErrorInput("#b00500");
+      setErrorMessage("Bạn cần nhập mật khẩu.");
+      return;
+    }
 
-    // if (password === "123456") {
+    if (password === "123456") {
       setRestrictionsPwd(false);
       setRestrictionsRank(false);
-    // } else {
-    //   setErrorInput("#b00500");
-    //   setErrorMessage("Mật khẩu không chính xác.");
-    //   return;
-    // }
+    } else {
+      setErrorInput("#b00500");
+      setErrorMessage("Mật khẩu không chính xác.");
+      return;
+    }
 
-    // setErrorMessage("");
+    setErrorMessage("");
   };
 
   return (
