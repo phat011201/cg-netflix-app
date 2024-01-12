@@ -41,22 +41,9 @@ const AppRoutes = () => {
 
       <Route path="/support" element={<div>Support</div>} />
 
-<<<<<<< HEAD
-      <Route
-        path="/contactus"
-        element={
-          <div>
-            <ContactUs />
-          </div>
-        }
-      />
-=======
-      <Route path="/contactus" element={<ContactUs />}/>
+      <Route path="/contactus" element={<ContactUs />} />
 
       <Route path="/admin/*" element={<Admin />}></Route>
-
-          
->>>>>>> 66407087739126df5b92206cb5c1a174178a05e6
     </Routes>
   );
 };
