@@ -12,6 +12,7 @@ import Manage from "../components/setting/profiles/manage";
 import Restrictions from "../components/setting/profiles/restrictions";
 import Watch from "../components/main/watch/Watch";
 import ContactUs from "../components/contactus/ContactUs";
+import Admin from "../components/admin/Admin";
 
 const AppRoutes = () => {
   return (
@@ -40,14 +41,11 @@ const AppRoutes = () => {
 
       <Route path="/support" element={<div>Support</div>} />
 
-      <Route
-        path="/contactus"
-        element={
-          <div>
-            <ContactUs />
-          </div>
-        }
-      />
+      <Route path="/contactus" element={<ContactUs />}/>
+
+      <Route path="/admin/*" element={<Admin />}></Route>
+
+          
     </Routes>
   );
 };
