@@ -1,5 +1,5 @@
 import React from "react";
-import ShowListEdit from "./showListEdit";
+import ShowListEdit from "../../setting/profiles/profilesManage/showListEdit";
 
 export default function Manage() {
   return (

@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .box-mainRestrictions {
   background-color: #f3f3f3;
   display: flex;
@@ -24,9 +33,10 @@
       top: 0;
       left: 0;
       right: 0;
+      z-index: 9;
 
       .max-width {
-        max-width: 1400px;
+        max-width: 1430px;
         flex: 1 1 auto;
         display: flex;
         flex-direction: row;
@@ -80,16 +90,17 @@
           .list-profileRestriction {
             position: absolute;
             top: 72px;
-            margin-right: 5px;
+            margin-right: 15px;
             display: none;
+            animation: fadeIn 0.2s ease-in-out;
 
             .wrapper-lists {
               display: block;
               background: #141414;
               color: #fff;
-              font-size: 13px;
+              font-size: 12px;
               font-weight: 500;
-              width: 170px;
+              width: 155px;
 
               .list-profileUsers {
                 display: flex;
@@ -106,9 +117,16 @@
                   width: 100%;
                   padding: 10px 5px 0 10px;
                   margin-bottom: 5px;
+                  a {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 100%;
 
-                  img {
-                    margin-right: 10px;
+                    img {
+                      margin-right: 10px;
+                    }
                   }
                 }
                 .listItem-profileUser:hover {
@@ -117,7 +135,7 @@
               }
 
               .list-profileSettings {
-                margin: 5px 10px;
+                margin: 5px;
 
                 .listItem-profileSetting {
                   padding: 8px 5px;
@@ -138,10 +156,11 @@
               .checkOut-restrictions {
                 text-align: center;
                 border-top: 1px solid #666;
-                padding: 10px;
-              }
-              .checkOut-restrictions:hover {
-                text-decoration: underline;
+                padding: 12px;
+
+                &:hover {
+                  text-decoration: underline;
+                }
               }
             }
           }
@@ -159,116 +178,131 @@
       justify-content: center;
       align-items: center;
       max-width: 1024px;
-      min-height: 400px;
       width: 100%;
       margin-top: 20px;
 
-      .detail-content-maxwidth {
+      form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 50px;
         width: 100%;
 
-        .title-avatar {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-          margin: 20px 0 10px;
-
-          .title {
-            h1 {
-              color: #333333;
-              font-size: 2.2vw;
-              font-weight: 600;
-            }
-          }
-          .avatar {
-            img {
-              width: 50px;
-              border-radius: 5px;
-            }
-          }
-        }
-
-        .checkPwd {
+        .detail-content-maxWidth {
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
-          align-items: flex-start;
+          justify-content: center;
+          align-items: center;
           width: 100%;
-          margin-top: 20px;
 
-          .restriction-user {
-            color: #141414;
-            font-weight: 600;
-            font-size: 1.2vw;
-          }
-          .input-checkPwd {
+          .title-avatar {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            width: 100%;
+            margin: 20px 0 10px;
+
+            .title {
+              h1 {
+                color: #333333;
+                font-size: 2.2vw;
+                font-weight: 600;
+              }
+            }
+            .avatar {
+              img {
+                width: 50px;
+                border-radius: 5px;
+              }
+            }
+          }
+
+          .checkPwd {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
             margin-top: 20px;
+            position: relative;
 
-            .input {
-              width: 300px;
-              height: 40px;
-              padding: 10px;
-              border: 1px solid #b3b3b3;
+            .restriction-password {
+              color: #141414;
+              font-weight: 600;
+              font-size: 1.2vw;
             }
-            .input:focus {
-              outline: 1px solid #d0d0d0;
-            }
+            .input-checkPwd {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              margin-top: 20px;
 
-            .forgetPwd {
-              color: #0080ff;
-              text-indent: 15px;
-              font-weight: 500;
-              cursor: pointer;
-            }
-            .forgetPwd:hover {
-              text-decoration: underline;
-            }
-          }
-        }
+              .input {
+                width: 300px;
+                height: 40px;
+                padding: 10px;
+                border: 1px solid #b3b3b3;
+              }
+              .input:focus {
+                outline: 1px solid #d0d0d0;
+              }
 
-        .btn-restriction {
-          display: flex;
-          flex-direction: row;
-          margin-top: 70px;
+              .forgetPwd {
+                color: #0080ff;
+                text-indent: 15px;
+                font-weight: 500;
+                cursor: pointer;
+              }
+              .forgetPwd:hover {
+                text-decoration: underline;
+              }
+            }
+            .message {
+              position: absolute;
+              bottom: -18px;
+              color: #b00500;
+              font-size: 13px;
+            }
+          }
 
-          .next,
-          .cancel {
-            display: inline-block;
-            font-size: 14px;
-            line-height: 1em;
-            margin-right: 0.5em;
-            border-radius: 2px;
-            min-height: 37px;
-            min-width: 98px;
-            padding: 12px 1em;
-            width: auto;
-          }
-          .next {
-            background-image: linear-gradient(180deg, #0080ff, #0277ec);
-            color: #fff;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
-          }
-          .next:hover {
-            background: #2490fd;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
-          }
-          .cancel {
-            background-color: #e6e6e6;
-            background-image: linear-gradient(180deg, #e6e6e6, #ddd);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-          }
-          .cancel:hover {
-            background: #eaeaea;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+          .btn-restriction {
+            display: flex;
+            flex-direction: row;
+            margin-top: 70px;
+
+            .next,
+            .cancel {
+              display: inline-block;
+              font-size: 14px;
+              line-height: 1em;
+              margin-right: 0.5em;
+              border-radius: 2px;
+              min-height: 37px;
+              min-width: 98px;
+              padding: 12px 1em;
+              width: auto;
+            }
+            .next {
+              background-image: linear-gradient(180deg, #0080ff, #0277ec);
+              color: #fff;
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+            }
+            .next:hover {
+              background: #2490fd;
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+            }
+            .cancel {
+              background-color: #e6e6e6;
+              background-image: linear-gradient(180deg, #e6e6e6, #ddd);
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+            }
+            .cancel:hover {
+              background: #eaeaea;
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+            }
           }
         }
       }

@@ -5,8 +5,8 @@ import {
   AVATAR,
   avatarRank,
   iconNickname,
-} from "../../../assets/images/settings/constantImg";
-import "../scss/modalProfile.scss";
+} from "../../../../assets/images/settings/constantImg";
+import "../../scss/modalProfile.scss";
 
 export default function ModalProfile({ isOpen, onClose }) {
   const [isHover, setIsHover] = useState();
