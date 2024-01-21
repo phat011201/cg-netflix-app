@@ -1,29 +1,37 @@
-const logo = {
-  src: "https://www.themoviedb.org/assets/2/v4/logos/s",
+import { logo } from "../assets/images/index.js";
+import profileImg from "../assets/images/default-profile.jpg";
+
+const LOGO = {
+  src: logo,
   alt: "logo",
 };
 
-const headTitle = [
+const HEADTITLE = [
   {
     title: "Trang Chủ",
-    link: "/",
+    path: "/browse",
   },
   {
     title: "Phim T.hình",
-    link: "/TVShows",
+    path: "/browse/tvshows",
   },
   {
     title: "Phim",
-    link: "/Films",
+    path: "/browse/films",
   },
   {
-    title: "Mới & Phổ biến",
-    link: "/NewAndPopular",
-  },
-  {
-    title: "Duyệt tìm theo ngôn ngữ",
-    link: "/BrowseByLanguage",
+    title: "Duyệt theo ngôn ngữ",
+    path: "/browse/original-audio",
   },
 ];
 
-export { logo, headTitle };
+const PROFILE = {
+  name: "networld",
+  avatar: profileImg,
+};
+
+const TOP_OFFSET = 66;
+
+const MOVIES_API_URL = "https://cg-netflix-back-end.onrender.com/api/v1/";
+
+export { LOGO, HEADTITLE, TOP_OFFSET, PROFILE, MOVIES_API_URL };
